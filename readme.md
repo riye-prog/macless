@@ -1,47 +1,47 @@
-# macless
+# Macless
 
-resizing, eyezoom, and useful f3 overlays for minecraft speedrunning. built for macos, windows, and linux.
+Resizing, EyeZoom, and useful F3 overlays for Minecraft speedrunning. Built for macOS, Windows, and Linux.
 
-## get it
+## Get it
 
-[download version 1.0.1](https://github.com/riye%2dprog/macless/releases/tag/v1.0.1). choose the jar matching minecraft 1.16.1 or 26.3, put it in your mods folder, and restart. fabric api is not required.
+[Download version 1.0.1](https://github.com/riye%2dprog/macless/releases/tag/v1.0.1). Choose the JAR matching Minecraft 1.16.1 or 26.3, put it in your mods folder, and restart. Fabric API is not required.
 
-minecraft 26.3 needs java 25. minecraft 1.16.1 needs java 17 or newer.
+Minecraft 26.3 needs Java 25. Minecraft 1.16.1 needs Java 17 or newer.
 
-each jar includes native libraries for apple silicon, intel macs, windows x64, and linux x64 and arm64. macos targets version 14, although compatibility with macos 14 still needs runtime verification. linux requires glibc 2.28 or newer. additional capture dependencies and exact build settings are listed in [build details](approval/build.json).
+Each JAR includes native libraries for Apple Silicon, Intel Macs, Windows x64, and Linux x64 and arm64. macOS targets version 14, although compatibility with macOS 14 still needs runtime verification. Linux requires glibc 2.28 or newer. Additional capture dependencies and exact build settings are listed in [build details](approval/build.json).
 
-26.3 supports opengl, vulkan, and metal through a compatible external mcopt backend. 1.16.1 uses opengl. support here does not establish approval for a renderer, launcher, or another mod.
+26.3 supports OpenGL, Vulkan, and Metal through a compatible external mcopt backend. 1.16.1 uses OpenGL. Support here does not establish approval for a renderer, launcher, or another mod.
 
-## use it
+## Use it
 
-ctrl+i or f8 opens the interface. f6 toggles thin, f7 wide, f9 eyezoom, f5 preemptive, and f10 fullscreen. shortcuts can be changed, combined into chords, or set to hold. gameplay shortcuts stay inactive in chat and normal menus.
+Ctrl+I or F8 opens the interface. F6 toggles Thin, F7 Wide, F9 EyeZoom, F5 Preemptive, and F10 Fullscreen. Shortcuts can be changed, combined into chords, or set to hold. Gameplay shortcuts stay inactive in chat and normal menus.
 
-resizing changes the actual game render target inside the existing window. the operating system window keeps its size. eyezoom magnifies that image beside the game viewport, with measuring labels from 1 to 9.
+Resizing changes the actual game render target inside the existing window. The operating system window keeps its size. EyeZoom magnifies that image beside the game viewport, with measuring labels from 1 to 9.
 
-normal mouse scaling applies to both axes. eyezoom can override it with a measurement multiplier. values go up to 20x, while effective turn gain stays within vanilla sensitivity limits.
+Normal mouse scaling applies to both axes. EyeZoom can override it with a measurement multiplier. Values go up to 20x, while effective turn gain stays within vanilla sensitivity limits.
 
-the profiler redraws the section selected through vanilla number keys. mapless appears when the selected section contains the block entity entry. neither searches hidden profiler branches and the entity counter uses the displayed f3 counter.
+The profiler redraws the section selected through vanilla number keys. Mapless appears when the selected section contains the block entity entry. Neither searches hidden profiler branches, and the entity counter uses the displayed F3 counter.
 
-overlay size, position, font, colors, opacity, padding, and visible content are editable under layout. click a numeric field to type a value, then press enter or leave the field to apply it. settings save automatically in `config/macless/`.
+Overlay size, position, font, colors, opacity, padding, and visible content are editable under Layout. Click a numeric field to type a value, then press Enter or leave the field to apply it. Settings save automatically in `config/macless/`.
 
-ninjabrain integration displays the bot's local api output. enable the api in the bot first. there is no ninjabrain overlay and no obs output route.
+Ninjabrain integration displays the bot's local API output. Enable the API in the bot first. There is no Ninjabrain overlay and no OBS output route.
 
-## approval status
+## Approval status
 
-this version is a candidate for moderator review. it is not approved for submitted runs.
+This version is a candidate for moderator review. It is not approved for submitted runs.
 
-[review notes](approval/readme.md) cover the seven pending rulings, the implemented restrictions, and the source entry points. [exact binary hashes](approval/artifacts.json), [validation evidence](approval/evidence/verification.json), and a [submission checklist](approval/checklist.json) are included.
+[Review notes](approval/readme.md) cover the seven pending rulings, the implemented restrictions, and the source entry points. [Exact binary hashes](approval/artifacts.json), [validation evidence](approval/evidence/verification.json), and a [submission checklist](approval/checklist.json) are included.
 
-## build
+## Build
 
-use java 25, python 3, cmake 3.24 or newer, and a c++20 compiler. macos also needs freetype and libpng. the gradle wrapper verifies its distribution checksum.
+Use Java 25, Python 3, CMake 3.24 or newer, and a C++20 compiler. macOS also needs FreeType and libpng. The Gradle wrapper verifies its distribution checksum.
 
 ```sh
 ./gradlew assemble :legacy:assemble check
 ```
 
-the platform workflow builds five native targets and assembles both universal jars. [hosted checks](approval/evidence/hosted%2dbuild.json) passed for this source. detailed release and qa commands, dependency versions, and local verification setup are in [build details](approval/build.json). qa controllers and fixtures are excluded from release jars.
+The platform workflow builds five native targets and assembles both universal JARs. [Hosted checks](approval/evidence/hosted%2dbuild.json) passed for this source. Detailed release and QA commands, dependency versions, and local verification setup are in [build details](approval/build.json). QA controllers and fixtures are excluded from release JARs.
 
-## license
+## License
 
-mit.
+MIT.
