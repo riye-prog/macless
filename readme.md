@@ -10,7 +10,7 @@ Minecraft 26.3 needs Java 25. Minecraft 1.16.1 needs Java 17 or newer.
 
 Each JAR includes native libraries for Apple Silicon, Intel Macs, Windows x64, and Linux x64 and arm64. macOS targets version 14, although compatibility with macOS 14 still needs runtime verification. Linux requires glibc 2.28 or newer. Additional capture dependencies and exact build settings are listed in [build details](approval/build.json).
 
-26.3 supports OpenGL, Vulkan, and Metal through a compatible external mcopt backend. 1.16.1 uses OpenGL. Support here does not establish approval for a renderer, launcher, or another mod.
+26.3 supports OpenGL, Vulkan, and Metal through a compatible external mcopt backend. 1.16.1 uses OpenGL.
 
 ## Use it
 
@@ -26,11 +26,11 @@ Overlay size, position, font, colors, opacity, padding, and visible content are 
 
 Ninjabrain integration displays the bot's local API output. Enable the API in the bot first. There is no Ninjabrain overlay and no OBS output route.
 
-## Approval status
+## Status
 
-This version is a candidate for moderator review. It is not approved for submitted runs.
+This release is not approved for submitted runs.
 
-[Review notes](approval/readme.md) cover the seven pending rulings, the implemented restrictions, and the source entry points. [Exact binary hashes](approval/artifacts.json), [validation evidence](approval/evidence/verification.json), and a [submission checklist](approval/checklist.json) are included.
+[Binary hashes](approval/artifacts.json) and [test results](approval/evidence/verification.json) are available.
 
 ## Build
 
