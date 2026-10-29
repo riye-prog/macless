@@ -57,7 +57,7 @@
     },
     {
       "item": "release binaries and review bundle",
-      "status": "prepared for publication",
+      "status": "exact hashes and versioned download links provided; release page is the publication authority",
       "url": "https://github.com/riye-prog/macless/releases/tag/v1.0.1"
     }
   ],

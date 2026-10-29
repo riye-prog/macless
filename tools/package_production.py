@@ -62,6 +62,7 @@ def package():
         checksums['natives'][target]={'resource':'natives/'+target+'/'+details['library'],**hashes(path)}
     checksums['helpers']['windows-capture']={'resource':'natives/windows-x64/macless-capture.exe',**hashes(ROOT/'build/natives/windows-x64/macless-capture.exe')}
     shutil.copy2(ROOT/'readme.md',destination/'readme.md')
+    shutil.copy2(ROOT/'LICENSE',destination/'LICENSE')
     shutil.copytree(ROOT/'approval',destination/'approval')
     shutil.copytree(ROOT/'native/licenses',destination/'licenses')
     shutil.copy2(ROOT/'build/native/_deps/imgui-src/LICENSE.txt',destination/'licenses/imgui.txt')
