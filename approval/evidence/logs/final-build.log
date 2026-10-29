@@ -1,0 +1,189 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Configure project :legacy
+Fabric Loom: 1.18.4
+
+> Task :generateBuildVariant UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+
+> Task :configureNative
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: /users/build/Desktop/inj/build/native
+
+> Task :buildNative
+[ 35%] Built target imgui
+[ 41%] Building CXX object CMakeFiles/toolscreen.dir/native/ui.cpp.o
+[ 47%] Linking CXX shared library libtoolscreen.dylib
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[2](ftsystem.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[3](ftdebug.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[4](ftinit.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[5](ftbase.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[8](ftbitmap.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[14](ftmm.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[19](ftsynth.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[22](truetype.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[23](type1.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[24](cff.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[25](type1cid.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[26](pfr.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[27](type42.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[28](winfnt.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[29](pcf.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[30](bdf.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[31](sfnt.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[32](autofit.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[33](pshinter.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[34](smooth.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[35](raster.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[36](svg.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[37](sdf.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[39](ftgzip.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[40](ftlzw.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[41](ftbzip2.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[42](psaux.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.a[43](psnames.o)) was built for newer 'macOS' version (27.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[2](png.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[3](pngerror.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[4](pngget.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[5](pngmem.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[7](pngread.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[8](pngrio.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[9](pngrtran.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[10](pngrutil.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[11](pngset.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[12](pngtrans.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[13](pngwio.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[14](pngwrite.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[15](pngwtran.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[16](pngwutil.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[17](arm_init.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[18](filter_neon_intrinsics.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+ld: warning: object file (/opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.a[19](palette_neon_intrinsics.o)) was built for newer 'macOS' version (15.0) than being linked (14.0)
+[100%] Built target toolscreen
+
+> Task :processResources
+> Task :classes
+> Task :processIncludeJars UP-TO-DATE
+> Task :legacy:generateBuildVariant UP-TO-DATE
+> Task :jar
+> Task :legacy:compileJava UP-TO-DATE
+> Task :assemble
+> Task :legacy:processResources
+> Task :legacy:classes
+> Task :legacy:jar
+> Task :legacy:processIncludeJars UP-TO-DATE
+> Task :compileDesktopVerificationJava UP-TO-DATE
+> Task :processDesktopVerificationResources NO-SOURCE
+> Task :desktopVerificationClasses UP-TO-DATE
+> Task :desktopJniTest SKIPPED
+
+> Task :desktopTest
+MACLESS_DESKTOP_PASS checks=14
+
+> Task :legacy:remapJar
+
+> Task :nativeTest
+test_runtime_limits_survive_settings_reset_and_allow_window_sizes (test_approval.ApprovalTests.test_runtime_limits_survive_settings_reset_and_allow_window_sizes) ... ok
+test_actual_ninjabrain_1_5_2_triangulation_response (test_native.NativeTests.test_actual_ninjabrain_1_5_2_triangulation_response) ... ok
+test_auto_projector_never_overlaps_game_across_displays (test_native.NativeTests.test_auto_projector_never_overlaps_game_across_displays) ... ok
+test_background_image_is_clipped_around_game (test_native.NativeTests.test_background_image_is_clipped_around_game) ... ok
+test_binding_conflicts_and_chords_survive_reload (test_native.NativeTests.test_binding_conflicts_and_chords_survive_reload) ... ok
+test_canvas_drag_is_one_undoable_action (test_native.NativeTests.test_canvas_drag_is_one_undoable_action) ... ok
+test_canvas_top_left_resize_keeps_opposite_corner (test_native.NativeTests.test_canvas_top_left_resize_keeps_opposite_corner) ... ok
+test_command_palette_finds_sensitivity_and_accepts_keyboard_selection (test_native.NativeTests.test_command_palette_finds_sensitivity_and_accepts_keyboard_selection) ... ok
+test_corrupt_primary_recovers_last_valid_backup (test_native.NativeTests.test_corrupt_primary_recovers_last_valid_backup) ... ok
+test_dimension_limit_preserves_aspect (test_native.NativeTests.test_dimension_limit_preserves_aspect) ... ok
+test_display_and_obs_plans_have_independent_objects (test_native.NativeTests.test_display_and_obs_plans_have_independent_objects) ... ok
+test_escape_can_be_captured_as_a_gameplay_binding (test_native.NativeTests.test_escape_can_be_captured_as_a_gameplay_binding) ... ok
+test_escape_cancels_canvas_drag (test_native.NativeTests.test_escape_cancels_canvas_drag) ... ok
+test_every_physical_keyboard_scan_can_bind (test_native.NativeTests.test_every_physical_keyboard_scan_can_bind) ... ok
+test_eyezoom_native_target_is_cropped_instead_of_scaled (test_native.NativeTests.test_eyezoom_native_target_is_cropped_instead_of_scaled) ... ok
+test_eyezoom_replaces_normal_sensitivity_and_restores_it (test_native.NativeTests.test_eyezoom_replaces_normal_sensitivity_and_restores_it) ... ok
+test_eyezoom_routing_and_opacity_preserve_game_color (test_native.NativeTests.test_eyezoom_routing_and_opacity_preserve_game_color) ... ok
+test_eyezoom_uses_centered_crop (test_native.NativeTests.test_eyezoom_uses_centered_crop) ... ok
+test_f3_counter_appears_only_with_real_data_and_routes (test_native.NativeTests.test_f3_counter_appears_only_with_real_data_and_routes) ... ok
+test_f3_debug_chords_do_not_trigger_toolscreen (test_native.NativeTests.test_f3_debug_chords_do_not_trigger_toolscreen) ... ok
+test_fixed_pixel_counter_crop_and_scale_survive_resizing (test_native.NativeTests.test_fixed_pixel_counter_crop_and_scale_survive_resizing) ... ok
+test_gameplay_bindings_are_blocked_in_chat_menus_and_when_disabled (test_native.NativeTests.test_gameplay_bindings_are_blocked_in_chat_menus_and_when_disabled) ... ok
+test_gpu_budget (test_native.NativeTests.test_gpu_budget) ... ok
+test_gradient_and_border_suspend_for_menus (test_native.NativeTests.test_gradient_and_border_suspend_for_menus) ... ok
+test_hold_binding_restores_previous_mode_even_if_panel_opens (test_native.NativeTests.test_hold_binding_restores_previous_mode_even_if_panel_opens) ... ok
+test_hold_chord_releases_modifier_to_vanilla (test_native.NativeTests.test_hold_chord_releases_modifier_to_vanilla) ... ok
+test_hold_configuration_saves_the_restored_mode (test_native.NativeTests.test_hold_configuration_saves_the_restored_mode) ... ok
+test_hud_rendering_preserves_editor_text_focus (test_native.NativeTests.test_hud_rendering_preserves_editor_text_focus) ... ok
+test_imgui_draw_packets_have_valid_vertices_and_clips (test_native.NativeTests.test_imgui_draw_packets_have_valid_vertices_and_clips) ... ok
+test_imgui_keyboard_page_navigation (test_native.NativeTests.test_imgui_keyboard_page_navigation) ... ok
+test_imgui_mouse_input_changes_native_settings (test_native.NativeTests.test_imgui_mouse_input_changes_native_settings) ... ok
+test_invalid_updates_do_not_corrupt_state (test_native.NativeTests.test_invalid_updates_do_not_corrupt_state) ... ok
+test_keybind_header_has_clear_space_above_first_button (test_native.NativeTests.test_keybind_header_has_clear_space_above_first_button) ... ok
+test_letterbox_keeps_source_aspect (test_native.NativeTests.test_letterbox_keeps_source_aspect) ... ok
+test_mapless_uses_only_the_current_profiler_selection (test_native.NativeTests.test_mapless_uses_only_the_current_profiler_selection) ... ok
+test_mirror_crop_stays_in_source (test_native.NativeTests.test_mirror_crop_stays_in_source) ... ok
+test_modern_signed_argb_profiler_colors_are_preserved (test_native.NativeTests.test_modern_signed_argb_profiler_colors_are_preserved) ... ok
+test_modifier_binding_only_fires_for_matching_chord (test_native.NativeTests.test_modifier_binding_only_fires_for_matching_chord) ... ok
+test_multiple_key_chords_and_exact_modifiers (test_native.NativeTests.test_multiple_key_chords_and_exact_modifiers) ... ok
+test_multiple_mirrors_keep_separate_visibility_and_border (test_native.NativeTests.test_multiple_mirrors_keep_separate_visibility_and_border) ... ok
+test_ninjabrain_data_does_not_draw_a_runtime_layer (test_native.NativeTests.test_ninjabrain_data_does_not_draw_a_runtime_layer) ... ok
+test_ninjabrain_schema_coordinates_confidence_and_disconnect (test_native.NativeTests.test_ninjabrain_schema_coordinates_confidence_and_disconnect) ... ok
+test_odd_dimensions_follow_windows_integer_centering (test_native.NativeTests.test_odd_dimensions_follow_windows_integer_centering) ... ok
+test_overlay_all_rows_fit_a_small_manual_panel (test_native.NativeTests.test_overlay_all_rows_fit_a_small_manual_panel) ... ok
+test_overlay_customization_roundtrips_and_undoes (test_native.NativeTests.test_overlay_customization_roundtrips_and_undoes) ... ok
+test_overlay_long_names_render_every_glyph (test_native.NativeTests.test_overlay_long_names_render_every_glyph) ... ok
+test_overlay_long_paths_render_every_glyph (test_native.NativeTests.test_overlay_long_paths_render_every_glyph) ... ok
+test_overlay_near_screen_edge_moves_inward (test_native.NativeTests.test_overlay_near_screen_edge_moves_inward) ... ok
+test_persistence_is_atomic_on_invalid_load (test_native.NativeTests.test_persistence_is_atomic_on_invalid_load) ... ok
+test_plan_capacity_is_checked (test_native.NativeTests.test_plan_capacity_is_checked) ... ok
+test_previous_source_format_is_migrated (test_native.NativeTests.test_previous_source_format_is_migrated) ... ok
+test_random_configurations_have_finite_bounded_crops (test_native.NativeTests.test_random_configurations_have_finite_bounded_crops) ... ok
+test_remapping_configuration_survives_reload (test_native.NativeTests.test_remapping_configuration_survives_reload) ... ok
+test_remapping_is_opt_in_and_does_not_chain (test_native.NativeTests.test_remapping_is_opt_in_and_does_not_chain) ... ok
+test_repeat_and_release_are_consumed_without_retriggering (test_native.NativeTests.test_repeat_and_release_are_consumed_without_retriggering) ... ok
+test_retina_input_controls_receive_precise_mouse_input (test_native.NativeTests.test_retina_input_controls_receive_precise_mouse_input) ... ok
+test_sensitivity_supports_twenty_and_precise_right_click_entry (test_native.NativeTests.test_sensitivity_supports_twenty_and_precise_right_click_entry) ... ok
+test_source_anchor_and_destination_resize_override_magnification (test_native.NativeTests.test_source_anchor_and_destination_resize_override_magnification) ... ok
+test_sources_survive_config_round_trip (test_native.NativeTests.test_sources_survive_config_round_trip) ... ok
+test_true_render_dimensions_and_menu_restore (test_native.NativeTests.test_true_render_dimensions_and_menu_restore) ... ok
+test_undo_preserves_loaded_background_dimensions (test_native.NativeTests.test_undo_preserves_loaded_background_dimensions) ... ok
+test_undo_redo_preserves_source_objects_and_properties (test_native.NativeTests.test_undo_redo_preserves_source_objects_and_properties) ... ok
+test_unified_sensitivity_applies_to_both_axes_and_all_modes (test_native.NativeTests.test_unified_sensitivity_applies_to_both_axes_and_all_modes) ... ok
+test_v4_migration_keeps_an_immutable_original (test_native.NativeTests.test_v4_migration_keeps_an_immutable_original) ... ok
+test_v5_profiles_migrate_with_a_backup (test_native.NativeTests.test_v5_profiles_migrate_with_a_backup) ... ok
+test_windows_wide_preset_and_manual_override (test_native.NativeTests.test_windows_wide_preset_and_manual_override) ... ok
+test_add_layer_menu_has_spacious_rows (test_ui_inputs.UiInputTests.test_add_layer_menu_has_spacious_rows) ... ok
+test_dragging_a_dimension_field_does_not_change_its_value (test_ui_inputs.UiInputTests.test_dragging_a_dimension_field_does_not_change_its_value) ... ok
+test_interface_scale_accepts_direct_typing_and_preserves_range (test_ui_inputs.UiInputTests.test_interface_scale_accepts_direct_typing_and_preserves_range) ... ok
+test_resolution_dimensions_accept_typing_and_disable_automatic (test_ui_inputs.UiInputTests.test_resolution_dimensions_accept_typing_and_disable_automatic) ... ok
+
+----------------------------------------------------------------------
+Ran 70 tests in 0.285s
+
+OK
+
+> Task :legacy:remapSourcesJar SKIPPED
+> Task :legacy:assemble
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :validateAccessWidener NO-SOURCE
+> Task :check
+> Task :legacy:compileTestJava NO-SOURCE
+> Task :legacy:processTestResources NO-SOURCE
+> Task :legacy:testClasses UP-TO-DATE
+> Task :legacy:test NO-SOURCE
+> Task :legacy:validateAccessWidener NO-SOURCE
+> Task :legacy:check UP-TO-DATE
+
+[Incubating] Problems report is available at: file:///users/build/Desktop/inj/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 6s
+16 actionable tasks: 9 executed, 7 up-to-date

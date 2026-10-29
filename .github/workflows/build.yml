@@ -1,0 +1,87 @@
+name: build
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-22.04, ubuntu-24.04-arm, windows-2022, macos-14, macos-15-intel]
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: msys2/setup-msys2@v2
+        id: msys
+        if: runner.os == 'Windows'
+        with:
+          install: mingw-w64-x86_64-gcc mingw-w64-x86_64-cmake mingw-w64-x86_64-make
+          path-type: inherit
+      - name: windows toolchain
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          "${{ steps.msys.outputs['msys2-location'] }}\mingw64\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          'CMAKE_GENERATOR=MinGW Makefiles' | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: mac dependencies
+        if: runner.os == 'macOS'
+        run: |
+          brew install freetype libpng
+          echo "CMAKE_PREFIX_PATH=$(brew --prefix freetype);$(brew --prefix libpng)" >> "$GITHUB_ENV"
+      - name: linux dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ python3 libx11-6 libxcomposite1 xvfb x11-apps
+      - uses: mlugg/setup-zig@v2
+        if: runner.os == 'Linux'
+        with:
+          version: 0.15.2
+      - name: compatible linux runtime
+        if: runner.os == 'Linux'
+        run: python3 tools/configure_linux.py
+      - name: build and contracts
+        shell: bash
+        run: bash ./gradlew build :legacy:build --console=plain
+      - name: linux x11 capture
+        if: runner.os == 'Linux'
+        run: python3 tests/linux_system_contract.py x11
+      - name: stage native
+        shell: bash
+        run: python tools/stage_native.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-${{ runner.os }}-${{ runner.arch }}
+          path: build/native-artifacts
+  jars:
+    needs: native
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: native-*
+          merge-multiple: true
+          path: build/natives
+      - name: universal jars
+        run: bash ./gradlew jar :legacy:remapJar -PprebuiltNatives=build/natives --console=plain
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macless-jars
+          path: |
+            build/libs/*.jar
+            legacy/build/libs/*+1.16.1.jar

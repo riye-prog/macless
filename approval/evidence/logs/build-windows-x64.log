@@ -1,0 +1,9 @@
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /users/build/Desktop/inj/build/native-windows-x64
+[  3%] Built target macless-capture
+[ 73%] Built target freetype
+[ 82%] Built target imgui
+[ 84%] Building CXX object CMakeFiles/toolscreen.dir/native/ui.cpp.obj
+[ 85%] Linking CXX shared library toolscreen.dll
+[100%] Built target toolscreen

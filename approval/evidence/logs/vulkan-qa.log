@@ -1,0 +1,158 @@
+
+> Configure project :
+Fabric Loom: 1.18.4
+
+> Configure project :legacy
+Fabric Loom: 1.18.4
+
+> Task :generateBuildVariant UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+
+> Task :configureNative
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: /users/build/Desktop/inj/build/native
+
+> Task :buildNative
+[ 35%] Built target imgui
+[100%] Built target toolscreen
+
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :generateLog4jConfig UP-TO-DATE
+> Task :generateDLIConfig UP-TO-DATE
+> Task :configureLaunch UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :configureClientLaunch UP-TO-DATE
+
+> Task :runClient
+[23:02:36] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 26.3 with Fabric Loader 0.19.5
+[23:02:36] [main/INFO] (FabricLoader/Mappings) Mappings not present!
+[23:02:36] [main/INFO] (FabricLoader) Loading 5 mods:
+	- fabricloader 0.19.5
+	- java 25
+	- minecraft 26.3
+	- mixinextras 0.5.5
+	- toolscreen-native 1.0.1+26.3
+[23:02:36] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/users/build/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.17.4+mixin.0.8.7/5f66cc9f59b8efaa942155a3d5a30599bf6640dd/sponge-mixin-0.17.4+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[23:02:37] [Datafixer Bootstrap #0/INFO] (Minecraft) 307 Datafixer optimizations took 176 milliseconds
+[23:02:38] [main/WARN] (MacOperatingSystem) Unable to parse version 27.0 to a codename.
+[23:02:40] [Render thread/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[23:02:40] [Render thread/INFO] (Minecraft) Environment: Environment[discoveryUrl=https://discovery.minecraftservices.com/minecraft/client, name=PROD]
+[23:02:40] [Render thread/INFO] (Minecraft) Setting user: Player944
+[23:02:40] [Render thread/INFO] (toolscreen-native) Macless native platform=macos-arm64 path=toolscreen-3b53476a6bc30d8c.dylib sha256=3b53476a6bc30d8ca7b6dac81a4a264f03c2bb4352b5a068fcef6e7456122b99 sha512=c474ea66132f56e2e5b19c3e39e7452e32deb80e21f66d5502081042ef8a4779061bcbc70c8c21b673cbdb423176cafd8c48914377df807f00df493d838278be
+[23:02:40] [Render thread/INFO] (toolscreen-native) Macless native core loaded for Minecraft 26.3
+[23:02:40] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.4.3-snapshot
+[23:02:40] [Render thread/INFO] (Minecraft) SDL [SYSTEM]: App name: Minecraft
+[23:02:40] [Render thread/INFO] (Minecraft) SDL [SYSTEM]: App version: 26.3
+[23:02:40] [Render thread/INFO] (Minecraft) SDL [SYSTEM]: App ID: com.mojang.minecraft
+[23:02:40] [Render thread/INFO] (Minecraft) SDL [SYSTEM]: SDL revision: SDL-3.4.14-62f10da
+[23:02:41] [Render thread/WARN] (Minecraft) Graphics backend forced to vulkan by launch argument, in-game preferred graphics backend setting is ignored
+[23:02:41] [Render thread/WARN] (Minecraft) Device [Apple M3] supports all extensions from FeatureSet [Vulkan Portability Subset], making required
+[23:02:41] [Render thread/INFO] (Minecraft) Enabling required for device FeatureSet [Vulkan Portability Subset]
+[23:02:41] [Render thread/INFO] (Minecraft) Optional FeatureSet [AMD Buffer Marker] not supported
+[23:02:41] [Render thread/INFO] (Minecraft) Optional FeatureSet [NV Diagnostic Checkpoint] not supported
+[23:02:41] [Render thread/INFO] (Minecraft) Enabling optional FeatureSet [Calibrated Timestamps]
+[23:02:41] [Render thread/INFO] (Minecraft) Optional FeatureSet [EXT MultiDraw] not supported
+[23:02:41] [Render thread/INFO] (Minecraft) Enabling optional FeatureSet [Wireframe]
+[23:02:41] [Render thread/INFO] (Minecraft) Using graphics backend Vulkan, using drivers: 1.2.350 MoltenVK 1.4.2
+[23:02:41] [Render thread/INFO] (Minecraft) Using graphics device: Apple M3 (APPLE)
+[23:02:41] [Render thread/INFO] (Minecraft) Using graphics device extensions: VK_KHR_portability_subset (D), VK_EXT_calibrated_timestamps (D), VK_KHR_synchronization2 (D), VK_EXT_metal_surface (I), VK_EXT_vertex_attribute_divisor (D), VK_KHR_swapchain (D), VK_KHR_surface (I), VK_KHR_push_descriptor (D), VK_EXT_debug_utils (I), VK_KHR_dynamic_rendering (D)
+[23:02:41] [Render thread/INFO] (Minecraft) Created window using SDL video driver: cocoa
+[23:02:42] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, vanilla, macless-renderer-0
+[23:02:42] [Worker-Main-7/INFO] (Minecraft) Found unifont_all_no_pua-17.0.01.hex, loading
+[23:02:42] [Worker-Main-6/INFO] (Minecraft) Found unifont_pua-17.0.01.hex, loading
+[23:02:43] [Worker-Main-1/INFO] (Minecraft) Found unifont_jp_patch-17.0.01.hex, loading
+[23:02:43] [Download-2/INFO] (Minecraft) Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: FabricMC
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
+[mvk-warn] VK_ERROR_FEATURE_NOT_PRESENT: Metal does not support disabling primitive restart.
+[23:02:43] [Render thread/INFO] (Minecraft) OpenAL initialized on device MacBook Pro Speakers
+[23:02:43] [Render thread/INFO] (Minecraft) Sound engine started
+[23:02:43] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[23:02:43] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/celestials.png-atlas
+[23:02:43] [Render thread/INFO] (Minecraft) Created: 128x128x0 minecraft:textures/atlas/decorated_pot.png-atlas
+[23:02:43] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[23:02:43] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/shield_patterns.png-atlas
+[23:02:43] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/banner_patterns.png-atlas
+[23:02:43] [Render thread/INFO] (Minecraft) Created: 2048x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[23:02:43] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/items.png-atlas
+[23:02:43] [Render thread/INFO] (Minecraft) Created: 1024x1024x0 minecraft:textures/atlas/gui.png-atlas
+[23:02:43] [Render thread/INFO] (Minecraft) Created: 128x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[23:02:43] [Render thread/INFO] (Minecraft) Created: 512x512x0 minecraft:textures/atlas/chest.png-atlas
+[23:02:43] [Render thread/INFO] (Minecraft) Created: 512x512x0 minecraft:textures/atlas/shulker_boxes.png-atlas
+[23:02:47] [Worker-Main-7/INFO] (Minecraft) Loaded 1866 advancements
+[23:02:47] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 26.3
+[23:02:47] [Server thread/INFO] (Minecraft) Generating keypair
+[23:02:47] [Server thread/INFO] (Minecraft) Selecting global world spawn...
+[23:02:47] [Server thread/INFO] (Minecraft) Loading 0 persistent chunks...
+[23:02:47] [Server thread/INFO] (Minecraft) Preparing spawn area: 16%
+[23:02:47] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Macless verification]'/minecraft:overworld
+[23:02:47] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Macless verification]'/minecraft:the_nether
+[23:02:47] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Macless verification]'/minecraft:the_end
+[23:02:48] [Server thread/INFO] (Minecraft) Loading 47 chunks for player spawn...
+[23:02:48] [Server thread/INFO] (Minecraft) Preparing spawn area: 16%
+[23:02:48] [Server thread/INFO] (Minecraft) Time elapsed: 915 ms
+[23:02:48] [Server thread/INFO] (Minecraft) Player944[local:E:ad4d45e0] logged in with entity id 1 at (-6.5, 4.0, 6.5)
+[23:02:48] [Server thread/INFO] (Minecraft) System chat: Player944 joined the game
+[23:02:48] [Server thread/INFO] (Minecraft) Changing view distance to 4, from 10
+[23:02:48] [Render thread/WARN] (Minecraft) Requested post effect does not exist: minecraft:end_of_frame
+[23:02:48] [Server thread/INFO] (Minecraft) Changing simulation distance to 12, from 0
+[23:02:48] [Render thread/INFO] (Minecraft) Resizing Dynamic Transforms UBO, capacity limit of 2 reached during a single frame. New capacity will be 4.
+[23:02:48] [Render thread/INFO] (Minecraft) Loaded 2 advancements
+[23:02:48] [Render thread/INFO] (Minecraft) Resizing Dynamic Transforms UBO, capacity limit of 4 reached during a single frame. New capacity will be 8.
+[23:02:48] [Render thread/INFO] (Minecraft) Resizing Dynamic Transforms UBO, capacity limit of 8 reached during a single frame. New capacity will be 16.
+[23:02:49] [Render thread/INFO] (Minecraft) Resizing Chunk Sections Command Buffer, capacity limit of 2 reached during a single frame. New capacity will be 8.
+[23:02:49] [Render thread/INFO] (Minecraft) Resizing Chunk Sections Instanced, capacity limit of 2 reached during a single frame. New capacity will be 8.
+[23:02:49] [Render thread/INFO] (Minecraft) Resizing Chunk Sections Command Buffer, capacity limit of 8 reached during a single frame. New capacity will be 16.
+[23:02:49] [Render thread/INFO] (Minecraft) Resizing Chunk Sections Instanced, capacity limit of 8 reached during a single frame. New capacity will be 16.
+2026-10-28 23:02:49.387 java[64052:16517285] forwardInvocation: <NSInvocation: 0x7a5d174480>
+2026-10-28 23:02:49.387 java[64052:16517285] Before CallBooleanMethod
+2026-10-28 23:02:49.391 java[64052:16517285] After CallBooleanMethod
+[23:02:49] [Render thread/INFO] (Minecraft) Resizing Chunk Sections Command Buffer, capacity limit of 16 reached during a single frame. New capacity will be 32.
+[23:02:49] [Render thread/INFO] (Minecraft) Resizing Chunk Sections Instanced, capacity limit of 16 reached during a single frame. New capacity will be 32.
+[23:02:49] [Server thread/INFO] (Minecraft) System chat: Successfully filled 625 block(s)
+[23:02:49] [Server thread/INFO] (Minecraft) System chat: Teleported Player944 to 0.500000, 81.000000, 0.500000
+[23:02:49] [Server thread/INFO] (Minecraft) System chat: Set minecraft:overworld to time marker minecraft:day
+[23:02:49] [Server thread/INFO] (Minecraft) System chat: Set the weather to clear
+[23:02:49] [Render thread/INFO] (Minecraft) [System] [CHAT] [Server: Successfully filled 625 block(s)]
+[23:02:49] [Render thread/INFO] (Minecraft) [System] [CHAT] [Server: Teleported Player944 to 0.500000, 81.000000, 0.500000]
+[23:02:49] [Server thread/INFO] (Minecraft) System chat: Changed the block at 2, 81, 4
+[23:02:49] [Render thread/INFO] (Minecraft) [System] [CHAT] [Server: Set minecraft:overworld to time marker minecraft:day]
+[23:02:49] [Render thread/INFO] (Minecraft) [System] [CHAT] [Server: Set the weather to clear]
+[23:02:49] [Render thread/INFO] (Minecraft) [System] [CHAT] [Server: Changed the block at 2, 81, 4]
+[23:02:50] [Server thread/INFO] (Minecraft) System chat: Summoned new Item Display
+[23:02:50] [Render thread/INFO] (Minecraft) [System] [CHAT] [Server: Summoned new Item Display]
+[23:02:50] [Render thread/WARN] (Minecraft) Something's taking too long! 'root.frame' took approximately 109.195834 ms
+[23:02:50] [Render thread/WARN] (Minecraft) Something's taking too long! 'root' took approximately 115.059416 ms
+[23:02:50] [Render thread/INFO] (toolscreen-native) TOOLSCREEN_VISUAL_READY backend=Vulkan
+[23:02:53] [Render thread/INFO] (toolscreen-native) TOOLSCREEN_VISUAL_READY backend=Vulkan
+[23:02:53] [Render thread/INFO] (toolscreen-native) TOOLSCREEN_VISUAL_READY backend=Vulkan
+[23:02:54] [Render thread/INFO] (toolscreen-native) TOOLSCREEN_VISUAL_READY backend=Vulkan
+[23:02:54] [Render thread/INFO] (Minecraft) Stopping!
+[23:02:54] [Server thread/INFO] (Minecraft) Player944 lost connection: Disconnected
+[23:02:54] [Server thread/INFO] (Minecraft) System chat: Player944 left the game
+[23:02:54] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
+[23:02:54] [Server thread/INFO] (Minecraft) Stopping server
+[23:02:54] [Server thread/INFO] (Minecraft) Saving players
+[23:02:54] [Server thread/INFO] (Minecraft) Saving worlds
+[23:02:55] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Macless verification]'/minecraft:overworld
+[23:02:55] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Macless verification]'/minecraft:the_nether
+[23:02:55] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Macless verification]'/minecraft:the_end
+
+[Incubating] Problems report is available at: file:///users/build/Desktop/inj/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 20s
+9 actionable tasks: 3 executed, 6 up-to-date

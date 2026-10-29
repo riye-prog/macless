@@ -1,0 +1,80 @@
+plugins {
+    id 'net.fabricmc.fabric-loom-remap'
+}
+
+version = '1.0.1+1.16.1'
+group = 'dev.riye'
+def verificationBuild = rootProject.hasProperty('verificationBuild') || rootProject.hasProperty('world') || rootProject.hasProperty('smoke')
+base { archivesName = verificationBuild ? 'macless-qa' : 'macless' }
+sourceSets.main.java.srcDir rootProject.file('shared/java')
+sourceSets.main.resources.srcDir rootProject.file('shared/resources')
+
+def generatedVariant = layout.buildDirectory.dir('generated/variant')
+def generatedVariantResources = layout.buildDirectory.dir('generated/variant-resources')
+sourceSets.main.java.srcDir generatedVariant
+sourceSets.main.resources.srcDir generatedVariantResources
+tasks.register('generateBuildVariant') {
+    inputs.property('verification', verificationBuild)
+    outputs.dirs generatedVariant, generatedVariantResources
+    doLast {
+        def source = generatedVariant.get().file('dev/riye/toolscreen/BuildVariant.java').asFile
+        source.parentFile.mkdirs()
+        source.text = 'package dev.riye.toolscreen;\npublic final class BuildVariant { public static final boolean VERIFICATION = ' + verificationBuild + '; private BuildVariant(){} }\n'
+        def descriptor = generatedVariantResources.get().file('macless-build.json').asFile
+        descriptor.parentFile.mkdirs()
+        descriptor.text = groovy.json.JsonOutput.toJson([verification: verificationBuild, approvalProfile: 'v8-review-1']) + '\n'
+    }
+}
+compileJava.dependsOn 'generateBuildVariant'
+processResources.dependsOn 'generateBuildVariant'
+tasks.withType(Jar).configureEach {
+    if (!verificationBuild) {
+        ['SmokeHarness','WorldHarness','ControlsProbe','RuntimeVerification','VerificationFixtures','LegacyHarness','LegacyVisualProbe','LegacyVisualBenchmark','LegacyControlsProbe','ModernVisualProbe','RenderColorProbe'].each { helper -> exclude 'dev/riye/toolscreen/' + helper + '*.class' }
+    }
+}
+
+dependencies {
+    minecraft 'com.mojang:minecraft:1.16.1'
+    mappings loom.officialMojangMappings()
+    modImplementation 'net.fabricmc:fabric-loader:0.19.5'
+    ['lwjgl','lwjgl-glfw','lwjgl-opengl','lwjgl-openal','lwjgl-stb','lwjgl-jemalloc','lwjgl-tinyfd'].each {
+        runtimeOnly "org.lwjgl:${it}:3.3.3:${rootProject.nativeOs == 'macos' ? 'natives-macos' : rootProject.nativeOs == 'windows' ? 'natives-windows' : 'natives-linux'}${rootProject.nativeCpu == 'arm64' ? '-arm64' : ''}"
+    }
+}
+
+configurations.configureEach {
+    resolutionStrategy.eachDependency {
+        if (requested.group == 'org.lwjgl') useVersion '3.3.3'
+        if (requested.group == 'org.apache.logging.log4j') useVersion '2.24.3'
+        if (requested.group == 'net.java.dev.jna') {
+            if (requested.name == 'platform') useTarget 'net.java.dev.jna:jna-platform:5.17.0'
+            else useVersion '5.17.0'
+        }
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+processResources {
+    dependsOn rootProject.tasks.named('buildNative')
+    if (rootProject.prebuiltNatives != null) { from(rootProject.file(rootProject.prebuiltNatives)) { into 'natives' } }
+    else {
+        from(new File(rootProject.nativeDirectory, rootProject.nativeLibrary)) { into 'natives/' + rootProject.nativePlatform }
+        if (rootProject.nativeOs == 'windows') from(new File(rootProject.nativeDirectory, 'macless-capture.exe')) { into 'natives/' + rootProject.nativePlatform }
+    }
+    from(rootProject.file('native/licenses')) { into 'licenses' }
+}
+
+loom {
+    runs {
+        client {
+            programArgs '--width','1440','--height','900'
+            if(project.hasProperty('world')) vmArg '-Dtoolscreen.world=true'
+            runDir 'run'
+        }
+    }
+}
+

@@ -1,0 +1,99 @@
+{
+  "candidate": "1.0.1",
+  "runtime_source_changed_since_binary_build": false,
+  "requirements": {
+    "java": "25 for builds and Minecraft 26.3; Java 17 minimum for the 1.16.1 release runtime",
+    "cmake": "3.24 or newer",
+    "python": "3.12 or newer",
+    "compiler": "C++17; AppleClang on macOS, MinGW GCC on Windows, Zig/GCC on Linux",
+    "gradle": "9.7.0 via checksum verified wrapper"
+  },
+  "dependencies": {
+    "minecraft": [
+      "1.16.1",
+      "26.3"
+    ],
+    "fabric_loader": "0.19.5 minimum",
+    "imgui": {
+      "commit": "f5befd2d29e66809cd1110a152e375a7f1981f06",
+      "archive_sha256": "85f4ce357df05bcc331b587f01976f47fb55f19fadf477a7907289686bc3f4c8"
+    },
+    "freetype": {
+      "version": "2.14.1 for portable builds",
+      "archive_sha256": "44bd69d1f0750603410cfd4f26f1c5523c5a3a087a2dfa8639b757dc7c6677be",
+      "macos": "host Homebrew FreeType and libpng; not a bit reproducible environment"
+    },
+    "nlohmann_json": {
+      "version": "3.12.0",
+      "header_sha256": "aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63"
+    },
+    "zig": "0.15.2 for cross compilation",
+    "lwjgl_legacy_development": "3.3.3",
+    "lwjgl_legacy_prism_verified": "3.3.1-mmachina.1",
+    "fabric_api": "neither required nor bundled",
+    "metal": "external mcopt 0.3.0-alpha.2 used in macOS QA only; not bundled or independently approved"
+  },
+  "commands": {
+    "host_release": "./gradlew assemble :legacy:assemble check",
+    "qa_build": "./gradlew assemble :legacy:assemble check -PverificationBuild",
+    "cross_natives": "python3 tools/build_platforms.py windows-x64 linux-x64 linux-arm64 macos-x64",
+    "universal_jars": "python3 tools/assemble_jars.py",
+    "modern_visual_qa": "python3 tools/verify_approval.py opengl vulkan metal",
+    "legacy_visual_qa": "python3 tools/verify_prism.py --launcher-log \"$MACLESS_PRISM_LOG\" --instance \"$MACLESS_PRISM_INSTANCE\" --jar legacy/build/libs/macless-qa-1.0.1+1.16.1.jar --visual --visual-world",
+    "exact_release_startup": "python3 tools/verify_release_boot.py",
+    "package": "python3 tools/package_production.py"
+  },
+  "qa_environment": {
+    "JAVA_HOME": "JDK 25 home directory",
+    "MACLESS_MCOPT": "absolute path to the separately installed mcopt JAR for Metal QA",
+    "MACLESS_PRISM_LOG": "path to a Prism launcher log for the desired local runtime; do not publish account tokens",
+    "MACLESS_PRISM_INSTANCE": "path to the local Prism instance copied for isolated verification"
+  },
+  "platforms": [
+    "macos-arm64",
+    "macos-x64",
+    "windows-x64",
+    "linux-x64",
+    "linux-arm64"
+  ],
+  "macos_dependencies": [
+    "freetype",
+    "libpng"
+  ],
+  "linux_runtime": {
+    "glibc": "2.28 or newer",
+    "x11": [
+      "libX11",
+      "libXcomposite"
+    ],
+    "browser": [
+      "python3",
+      "chromium or chrome"
+    ],
+    "wayland_capture": [
+      "xdg-desktop-portal with the desktop matching backend",
+      "pipewire",
+      "python3-gi",
+      "GStreamer introspection and pipewire plugin"
+    ],
+    "wayland_utilities": [
+      "wl-clipboard",
+      "zenity"
+    ]
+  },
+  "windows_runtime": {
+    "capture": "Windows 10 version 1903 or newer for Windows Graphics Capture, with compatibility fallback",
+    "browser": [
+      "Microsoft Edge",
+      "Google Chrome",
+      "Chromium"
+    ]
+  },
+  "verification_limits": [
+    "Byte for byte reproducibility has not been established.",
+    "macOS 14 compatibility is unverified because host static dependencies emit macOS 15 deployment warnings.",
+    "Windows, Linux and Intel macOS libraries were compiled but full Minecraft sessions on those platforms are unverified.",
+    "GitHub Actions results are separate from the existing local QA evidence.",
+    "Local QA controllers require a graphical desktop and are absent from release JARs."
+  ]
+}

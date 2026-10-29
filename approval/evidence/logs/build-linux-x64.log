@@ -1,0 +1,8 @@
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /users/build/Desktop/inj/build/native-linux-x64
+[ 71%] Built target freetype
+[ 81%] Built target imgui
+[ 83%] Building CXX object CMakeFiles/toolscreen.dir/native/ui.cpp.o
+[ 85%] Linking CXX shared library libtoolscreen.so
+[100%] Built target toolscreen

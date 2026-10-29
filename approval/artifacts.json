@@ -1,0 +1,55 @@
+{
+  "candidate": "1.0.1",
+  "jars": {
+    "macless-1.0.1+26.3.jar": {
+      "bytes": 26905465,
+      "sha256": "480b447220005ec758661bb9a83b50d392c0858ca200c095ebc496b8e325f0c6",
+      "sha512": "c228cbb3905fe9aa17cf90c6ce334b12af91639d0cf057f6c79635c1868cb5aba838bf49cd391ad8475767cde7aaa83ff2f52fcda298c3606918e9ba9b3ee89b"
+    },
+    "macless-1.0.1+1.16.1.jar": {
+      "bytes": 26894483,
+      "sha256": "a84e946f7e4abb4918576f080181c92bd0e001377f4fc519a13a8a2927952ac3",
+      "sha512": "75de3840ebb4d266cd506a3f4c1ada09f7f2e84c2e611ef83dae60228765eba2a1e8139e1e10feee877a0329afd72df3a22d7c61e91280e85c234c60d696d90e"
+    }
+  },
+  "natives": {
+    "macos-arm64": {
+      "resource": "natives/macos-arm64/libtoolscreen.dylib",
+      "bytes": 3187120,
+      "sha256": "3b53476a6bc30d8ca7b6dac81a4a264f03c2bb4352b5a068fcef6e7456122b99",
+      "sha512": "c474ea66132f56e2e5b19c3e39e7452e32deb80e21f66d5502081042ef8a4779061bcbc70c8c21b673cbdb423176cafd8c48914377df807f00df493d838278be"
+    },
+    "macos-x64": {
+      "resource": "natives/macos-x64/libtoolscreen.dylib",
+      "bytes": 3349296,
+      "sha256": "cf663824827bf38bab54a6892b758bb56f584b157e2baf26af1c2da4207bedcf",
+      "sha512": "ef347d9af35981367530054333f578375859be79c5ddc53b384b4d5e3ca9963a59a0b5d3dcb432fc9e33dc5bed29e4141737dfb96cd290840e8d5092a6b80d8c"
+    },
+    "windows-x64": {
+      "resource": "natives/windows-x64/toolscreen.dll",
+      "bytes": 20306018,
+      "sha256": "86f431662d9378ba1de1453299d2f70845c0ad5187fb223dddea00686436aed9",
+      "sha512": "979f8856c21b18cce758f2ee8d7e104b6c946b1e3162014a46f2c248e170e9dab43248650dc6dd95d15513235b9f8d73899a12bc802a1ed6ff2cab09c3ea89ac"
+    },
+    "linux-x64": {
+      "resource": "natives/linux-x64/libtoolscreen.so",
+      "bytes": 22605040,
+      "sha256": "113bb1202912f2069450d14ea9455398f96c7b42cbef50017e0c822c9a68eae0",
+      "sha512": "95353d1ae58dd2afec1f15cacc72ea2f82a6f0cdad5fe630308678b2be521e99dd8fda36bd0e8a5ee1aecc54d0e1e212dcb7eb365845ffe3bfa15a964cfa9c91"
+    },
+    "linux-arm64": {
+      "resource": "natives/linux-arm64/libtoolscreen.so",
+      "bytes": 22838904,
+      "sha256": "981a3d82914f5d0d3535fe2a6883f9c7b817ade284a725aaec46d449a5d6d210",
+      "sha512": "bdf3e03fd49f27c6665e221df6c982ee0c10d0120105a13235c5a04a0a77e06aeb3b900dc3462d234d20ca57fe5c8df199a81581537c815ebd23aff023614d4f"
+    }
+  },
+  "helpers": {
+    "windows-capture": {
+      "resource": "natives/windows-x64/macless-capture.exe",
+      "bytes": 12984382,
+      "sha256": "d58b0ba015f13e24ddacaea7b95a181bbb70881703436f61179b935317edbd2a",
+      "sha512": "e4a0cf15aadd6fba6a0bfb4a7501f3f34c7c1e18f96a0d885da9ccf34cf53be7d0ff81f0d026cfb6f8ea81995e405f30eb25f08f1bd98f893120a9e8b81080d8"
+    }
+  }
+}

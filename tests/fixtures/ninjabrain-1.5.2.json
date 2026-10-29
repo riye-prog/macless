@@ -1,0 +1,84 @@
+{
+  "stronghold": {
+    "eyeThrows": [
+      {
+        "xInOverworld": 1200,
+        "angleWithoutCorrection": -140.8361802722405,
+        "zInOverworld": -300,
+        "angle": -140.8361802722405,
+        "correction": 0,
+        "error": 0.18540986680284277,
+        "type": "MANUAL",
+        "correctionIncrements": 0
+      },
+      {
+        "xInOverworld": 1250,
+        "angleWithoutCorrection": -144.4771872485043,
+        "zInOverworld": -300,
+        "angle": -144.4771872485043,
+        "correction": 0,
+        "error": 0.0058268255459381635,
+        "type": "MANUAL",
+        "correctionIncrements": 0
+      }
+    ],
+    "resultType": "TRIANGULATION",
+    "playerPosition": {
+      "xInOverworld": 1250,
+      "isInOverworld": true,
+      "isInNether": false,
+      "horizontalAngle": -144.478,
+      "zInOverworld": -300
+    },
+    "predictions": [
+      {
+        "overworldDistance": 644.7356047249136,
+        "certainty": 0.9996498225134949,
+        "chunkX": 101,
+        "chunkZ": -52
+      },
+      {
+        "overworldDistance": 564.7831442244005,
+        "certainty": 0.0003501774865047379,
+        "chunkX": 98,
+        "chunkZ": -48
+      },
+      {
+        "overworldDistance": 667.0322331042181,
+        "certainty": 2.2839793503998943e-16,
+        "chunkX": 102,
+        "chunkZ": -53
+      },
+      {
+        "overworldDistance": 587.0638806807995,
+        "certainty": 1.0757830911195323e-22,
+        "chunkX": 99,
+        "chunkZ": -49
+      },
+      {
+        "overworldDistance": 724.6985580225753,
+        "certainty": 8.508278496810229e-38,
+        "chunkX": 104,
+        "chunkZ": -56
+      }
+    ]
+  },
+  "boat": {
+    "boatState": "NONE"
+  },
+  "blind": {
+    "isBlindModeEnabled": false,
+    "hasDivine": false,
+    "blindResult": {}
+  },
+  "divine": {
+    "isDivineModeEnabled": false,
+    "divineResult": {}
+  },
+  "messages": {
+    "informationMessages": []
+  },
+  "version": {
+    "version": "1.5.2"
+  }
+}

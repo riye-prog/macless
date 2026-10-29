@@ -1,0 +1,54 @@
+{
+  "candidate": "1.0.1",
+  "rules": "https://mc.sr/rules/rules_v8.pdf",
+  "submitted": false,
+  "approved": false,
+  "public_source_published": false,
+  "questions": [
+    {
+      "id": "profiler",
+      "sections": "a.11.9; a.10.6",
+      "question": "Direct selected-section profiler and displayed counter data with redesigned overlays",
+      "status": "pending moderator ruling"
+    },
+    {
+      "id": "virtual_resizing",
+      "sections": "a.10.4.a-b",
+      "question": "Render-target resizing, framebuffer bounds, one oversized pair locked per process",
+      "status": "pending moderator ruling"
+    },
+    {
+      "id": "sensitivity",
+      "sections": "a.1.4",
+      "question": "Automatic mode-specific mouse scaling bounded to vanilla-equivalent gain",
+      "status": "pending moderator ruling"
+    },
+    {
+      "id": "native_libraries",
+      "sections": "a.8.5; a.8.16",
+      "question": "Bundled JNI DLL/dylib/SO review and required logging per platform",
+      "status": "pending moderator ruling"
+    },
+    {
+      "id": "ninjabrain",
+      "sections": "a.11.7.a.i",
+      "question": "API display parity and chunk-to-block coordinate formatting",
+      "status": "pending moderator ruling"
+    },
+    {
+      "id": "versions_renderers",
+      "sections": "a.8.5; version-specific LWJGL rules",
+      "question": "Separate 1.16.1 and 26.3 approval; renderer and launcher dependencies",
+      "status": "pending moderator ruling"
+    },
+    {
+      "id": "composition_recording",
+      "sections": "a.2.9; a.10.6",
+      "question": "Passive layers and EyeZoom composition with required recording information visible",
+      "status": "pending moderator ruling"
+    }
+  ],
+  "reviewed_rules_sha256": "2d6debfe08d3654fc7414a9551335d61a154a3969ab2608c16ed34f69a9e91ae",
+  "reviewed_at": "2026-10-28",
+  "rules_rechecked_at": "2026-10-29"
+}

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "toolscreen-native",
+  "version": "1.0.1+26.3",
+  "name": "Macless",
+  "description": "Native speedrunning compositor for Minecraft 26.3 on macOS, Windows, and Linux.",
+  "environment": "client",
+  "entrypoints": {"client": ["dev.riye.toolscreen.Toolscreen"]},
+  "mixins": ["toolscreen.mixins.json"],
+  "depends": {"fabricloader": ">=0.19.5", "minecraft": "~26.3", "java": ">=25"}
+}

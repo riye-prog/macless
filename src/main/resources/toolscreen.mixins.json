@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "package": "dev.riye.toolscreen.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "GameRendererMixin",
+    "MinecraftMixin",
+    "KeyboardMixin",
+    "WindowMixin",
+    "PipelineAccessor",
+    "MouseSensitivityMixin",
+    "CameraMixin",
+    "DebugScreenMixin",
+    "ProfilerMixin",
+    "MouseAccess",
+    "ResourcePackMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

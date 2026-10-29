@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "version": "1.0.1",
+  "checks": [
+    "smooth profiler default",
+    "other overlay defaults unchanged",
+    "old profiler defaults migrate",
+    "custom color and padding preserved",
+    "migration marker persisted"
+  ],
+  "native_sha256": "3b53476a6bc30d8ca7b6dac81a4a264f03c2bb4352b5a068fcef6e7456122b99",
+  "opaque_default": true
+}

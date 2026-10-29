@@ -1,0 +1,15 @@
+.gradle/
+**/build/
+run/
+verification/
+dist/
+bin/
+**/__pycache__/
+*.py[cod]
+.DS_Store
+.idea/
+.vscode/
+.env
+.env.*
+*.pem
+*.key

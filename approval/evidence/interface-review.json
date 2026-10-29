@@ -1,0 +1,21 @@
+{
+  "typed_fields": {
+    "1": 478,
+    "2": 674,
+    "39": 2.875,
+    "146": 0.125
+  },
+  "scale": 1.375,
+  "gui_window_bounds": [
+    364.0,
+    247.0,
+    1108.0,
+    719.0
+  ],
+  "text_input": "Minecraft KeyboardHandler.textInput, SDL text session checked active for each field",
+  "compact_output": [
+    1024,
+    720
+  ],
+  "compact_scale": 2
+}

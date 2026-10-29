@@ -1,0 +1,25 @@
+package dev.riye.toolscreen;
+
+import dev.riye.toolscreen.mixin.LegacyMouseAccess;
+import net.minecraft.client.Minecraft;
+
+public final class LegacyControlsProbe {
+    private LegacyControlsProbe(){}
+    public static void camera(){
+        Minecraft game=Minecraft.getInstance();double[] settings=NativeBridge.snapshot();double sensitivity=game.options.sensitivity;boolean smooth=game.options.smoothCamera,invert=game.options.invertYMouse,active=game.isWindowActive(),grabbed=game.mouseHandler.isMouseGrabbed();float yaw=game.player.yRot,pitch=game.player.xRot;LegacyMouseAccess mouse=(LegacyMouseAccess)game.mouseHandler;
+        try{game.options.sensitivity=.5;game.options.smoothCamera=false;game.options.invertYMouse=false;game.setWindowActive(true);mouse.toolscreenMouseGrabbed(true);NativeBridge.set(128,1);NativeBridge.set(145,0);
+            for(int mode=0;mode<5;mode++){NativeBridge.set(0,mode);NativeBridge.set(39,1.5);NativeBridge.set(38,1);turn(game,mouse,1.5,1.5);}
+            NativeBridge.set(39,20);turn(game,mouse,20,20);NativeBridge.set(39,.12345678);turn(game,mouse,.12345678,.12345678);NativeBridge.set(0,3);NativeBridge.set(39,20);NativeBridge.set(146,.01234567);turn(game,mouse,.01234567,.01234567);NativeBridge.set(38,0);turn(game,mouse,.01234567,.01234567);NativeBridge.set(145,0);NativeBridge.set(38,0);turn(game,mouse,1,1);NativeBridge.set(38,1);NativeBridge.set(128,0);turn(game,mouse,1,1);
+            NativeBridge.set(128,1);NativeBridge.set(39,1.5);NativeBridge.set(40,1.5);NativeBridge.set(38,0);NativeBridge.setOption("sensitivity_scope","");NativeBridge.set(0,1);GameplaySettings.initialize();if(NativeBridge.snapshot()[38]<.5)throw new IllegalStateException("Configured sensitivity did not migrate");turn(game,mouse,1.5,1.5);
+            Toolscreen.LOGGER.info("TOOLSCREEN_CAMERA_SCALING_PASS modes=5 maximum=20 unified=true eyeOverride=true precise=true disabled=true migration=true");
+        }finally{for(int key:new int[]{0,39,40,38,128,145,146})NativeBridge.set(key,settings[key]);game.options.sensitivity=sensitivity;game.options.smoothCamera=smooth;game.options.invertYMouse=invert;game.setWindowActive(active);mouse.toolscreenMouseGrabbed(grabbed);mouse.toolscreenMouseX(0);mouse.toolscreenMouseY(0);game.player.yRot=yaw;game.player.xRot=pitch;}
+    }
+    private static void turn(Minecraft game,LegacyMouseAccess mouse,double horizontal,double vertical){horizontal=Math.max(.064,Math.min(4.096,horizontal));vertical=Math.max(.064,Math.min(4.096,vertical));game.player.yRot=0;game.player.xRot=0;game.player.yRotO=0;game.player.xRotO=0;mouse.toolscreenMouseX(8);mouse.toolscreenMouseY(4);mouse.toolscreenTurnPlayer();double yaw=game.player.yRot,pitch=game.player.xRot;if(Math.abs(yaw-1.2*horizontal)>.0001||Math.abs(pitch-.6*vertical)>.0001)throw new IllegalStateException("Camera scaling mismatch: "+yaw+", "+pitch+" expected "+(1.2*horizontal)+", "+(.6*vertical));}
+    public static void beginPause(){Minecraft game=Minecraft.getInstance();NativeBridge.set(0,0);NativeBridge.set(99,1);NativeBridge.inputEvent(66,0,1,true,false);game.pauseGame(true);Toolscreen.updateMeasurementPause();Toolscreen.hotkey(66,0,0);Toolscreen.hotkey(63,0,1);game.setWindowActive(false);}
+    public static void endPause(){Minecraft game=Minecraft.getInstance();game.setWindowActive(true);game.setScreen(null);Toolscreen.updateMeasurementPause();NativeBridge.set(99,0);}
+    public static void verifyPause(int stage){Minecraft game=Minecraft.getInstance();int[] view=Toolscreen.viewport();
+        if(stage==17){if(!Toolscreen.measurementPaused()||Toolscreen.suspended()||NativeBridge.snapshot()[0]!=3||view[0]!=384||view[1]!=16384)throw new IllegalStateException("Measurement pause lost the EyeZoom composition: paused="+Toolscreen.measurementPaused()+" suspended="+Toolscreen.suspended()+" mode="+NativeBridge.snapshot()[0]+" viewport="+view[0]+"x"+view[1]+" max="+Toolscreen.maximumTextureSize+" screen="+(game.screen==null?"none":game.screen.getClass().getName()));Toolscreen.LOGGER.info("TOOLSCREEN_MEASUREMENT_PAUSE_PASS heldMode=true focusLost=true viewport={}x{}",view[0],view[1]);}
+        if(stage==18){if(Toolscreen.measurementPaused()||Toolscreen.suspended()||NativeBridge.snapshot()[0]!=0)throw new IllegalStateException("Held mode did not restore on resume");Toolscreen.LOGGER.info("TOOLSCREEN_MEASUREMENT_RESUME_PASS");}
+        if(stage==19||stage==20){double before=NativeBridge.snapshot()[0];Toolscreen.hotkey(66,0,1);Toolscreen.hotkey(66,0,0);if(!Toolscreen.suspended()||NativeBridge.snapshot()[0]!=before||view[0]!=game.getWindow().getWidth()||view[1]!=game.getWindow().getHeight())throw new IllegalStateException("Normal screen input or dimensions leaked");Toolscreen.LOGGER.info("TOOLSCREEN_SCREEN_CONTEXT_PASS stage={}",stage);}
+    }
+}

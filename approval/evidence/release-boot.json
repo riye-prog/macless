@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "version": "1.0.1",
+  "clients": [
+    {
+      "passed": true,
+      "version": "1.0.1",
+      "minecraft": "26.3",
+      "variant": "release",
+      "jar_sha256": "480b447220005ec758661bb9a83b50d392c0858ca200c095ebc496b8e325f0c6",
+      "scope": "exact universal jar loaded from isolated mods folder; production Fabric launch; title-screen startup; intentional termination",
+      "log_sha256": "836802879081ba287d11ebb174b7225115bc0eb13529bb738f8b55d8ee07b5bc"
+    },
+    {
+      "passed": true,
+      "version": "1.0.1",
+      "minecraft": "1.16.1",
+      "variant": "release",
+      "jar_sha256": "a84e946f7e4abb4918576f080181c92bd0e001377f4fc519a13a8a2927952ac3",
+      "java": "/users/build/Library/Application Support/PrismLauncher/java/ibm_semeru-open_jre25.0.4+7/bin/java",
+      "lwjgl": "3.3.1-mmachina.1",
+      "mod_count": 19,
+      "scope": "exact packaged jar; title-screen startup; intentional termination",
+      "log_sha256": "299d9b0404b50b588b1c9ce88c30a1db0e649e116055c8672b8fce542eaff2a7"
+    }
+  ]
+}

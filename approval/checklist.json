@@ -1,0 +1,59 @@
+{
+  "candidate": "1.0.1",
+  "repository": "https://github.com/riye-prog/macless",
+  "release": "https://github.com/riye-prog/macless/releases/tag/v1.0.1",
+  "submitted_to_moderators": false,
+  "approved": false,
+  "items": [
+    {
+      "item": "public source repository",
+      "status": "pending publication verification"
+    },
+    {
+      "item": "exact release jars and bundled native hashes",
+      "status": "provided",
+      "path": "artifacts.json"
+    },
+    {
+      "item": "source license and dependency notices",
+      "status": "provided",
+      "paths": [
+        "../LICENSE",
+        "../native/licenses"
+      ]
+    },
+    {
+      "item": "build setup and dependency versions",
+      "status": "provided",
+      "path": "build.json"
+    },
+    {
+      "item": "runtime QA and exact release startup evidence",
+      "status": "provided",
+      "path": "evidence/verification.json"
+    },
+    {
+      "item": "version specific source and renderer entry points",
+      "status": "provided",
+      "path": "readme.md"
+    },
+    {
+      "item": "seven feature and platform rulings",
+      "status": "awaiting moderator review",
+      "path": "rulings.json"
+    },
+    {
+      "item": "approved list entries and any required logging arrangement",
+      "status": "awaiting moderator action; no approval claimed"
+    },
+    {
+      "item": "moderator review request",
+      "status": "draft provided; not sent",
+      "path": "readme.md"
+    },
+    {
+      "item": "Windows, Linux, Intel macOS and macOS 14 runtime coverage",
+      "status": "not established; limits disclosed"
+    }
+  ]
+}

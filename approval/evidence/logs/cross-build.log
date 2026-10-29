@@ -1,0 +1,8 @@
+building windows-x64
+{"target": "windows-x64", "library": "/users/build/Desktop/inj/build/natives/windows-x64/toolscreen.dll", "sha256": "86f431662d9378ba1de1453299d2f70845c0ad5187fb223dddea00686436aed9", "log": "/users/build/Desktop/inj/verification/macless-1.0.1/build-windows-x64.log"}
+building linux-x64
+{"target": "linux-x64", "library": "/users/build/Desktop/inj/build/natives/linux-x64/libtoolscreen.so", "sha256": "113bb1202912f2069450d14ea9455398f96c7b42cbef50017e0c822c9a68eae0", "log": "/users/build/Desktop/inj/verification/macless-1.0.1/build-linux-x64.log"}
+building linux-arm64
+{"target": "linux-arm64", "library": "/users/build/Desktop/inj/build/natives/linux-arm64/libtoolscreen.so", "sha256": "981a3d82914f5d0d3535fe2a6883f9c7b817ade284a725aaec46d449a5d6d210", "log": "/users/build/Desktop/inj/verification/macless-1.0.1/build-linux-arm64.log"}
+building macos-x64
+{"target": "macos-x64", "library": "/users/build/Desktop/inj/build/natives/macos-x64/libtoolscreen.dylib", "sha256": "cf663824827bf38bab54a6892b758bb56f584b157e2baf26af1c2da4207bedcf", "log": "/users/build/Desktop/inj/verification/macless-1.0.1/build-macos-x64.log"}

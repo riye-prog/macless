@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "package": "dev.riye.toolscreen.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "LegacyMinecraftMixin",
+    "LegacyRendererMixin",
+    "LegacyWindowMixin",
+    "LegacyKeyboardMixin",
+    "LegacyMouseMixin",
+    "LegacyDebugMixin",
+    "LegacyProfilerAccess",
+    "LegacyImagePixels",
+    "LegacyImageMixin",
+    "LegacyPauseAccess",
+    "LegacyMouseAccess"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
