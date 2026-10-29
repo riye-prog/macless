@@ -7,10 +7,10 @@
   "items": [
     {
       "item": "public source repository",
-      "status": "verified public"
+      "status": "public"
     },
     {
-      "item": "exact release jars and bundled native hashes",
+      "item": "release jars and native library hashes",
       "status": "provided",
       "path": "artifacts.json"
     },
@@ -28,12 +28,12 @@
       "path": "build.json"
     },
     {
-      "item": "runtime QA and exact release startup evidence",
+      "item": "QA and startup checks for the exact release jars",
       "status": "provided",
       "path": "evidence/verification.json"
     },
     {
-      "item": "version specific source and renderer entry points",
+      "item": "source and renderer files for each version",
       "status": "provided",
       "path": "readme.md"
     },
@@ -43,8 +43,8 @@
       "path": "rulings.json"
     },
     {
-      "item": "approved list entries and any required logging arrangement",
-      "status": "awaiting moderator action; no approval claimed"
+      "item": "approval list entries and required logging",
+      "status": "waiting for moderator approval and logging requirements"
     },
     {
       "item": "moderator review request",
@@ -53,18 +53,18 @@
     },
     {
       "item": "Windows, Linux, Intel macOS and macOS 14 runtime coverage",
-      "status": "not established; limits disclosed"
+      "status": "full minecraft sessions still need testing"
     },
     {
       "item": "release binaries and review bundle",
-      "status": "exact hashes and versioned download links provided; release page is the publication authority",
+      "status": "files, hashes, and download links are on the release page",
       "url": "https://github.com/riye-prog/macless/releases/tag/v1.0.1"
     },
     {
       "item": "five hosted native builds and universal JAR assembly",
       "status": "passed",
       "path": "evidence/hosted-build.json",
-      "scope": "diagnostic builds; release asset identities remain in artifacts.json"
+      "scope": "ci builds are separate; release hashes are in artifacts.json"
     }
   ],
   "runtime_source_revision": "f628b3fcb121979c2ac2ee76a51650f353ad610f",

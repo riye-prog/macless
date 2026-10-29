@@ -21,7 +21,7 @@
     "freetype": {
       "version": "2.14.1 for portable builds",
       "archive_sha256": "44bd69d1f0750603410cfd4f26f1c5523c5a3a087a2dfa8639b757dc7c6677be",
-      "macos": "host Homebrew FreeType and libpng; not a bit reproducible environment"
+      "macos": "host Homebrew FreeType and libpng; byte for byte rebuilds have not been verified"
     },
     "nlohmann_json": {
       "version": "3.12.0",
@@ -30,7 +30,7 @@
     "zig": "0.15.2 for cross compilation",
     "lwjgl_legacy_development": "3.3.3",
     "lwjgl_legacy_prism_verified": "3.3.1-mmachina.1",
-    "fabric_api": "neither required nor bundled",
+    "fabric_api": "not required or bundled",
     "metal": "external mcopt 0.3.0-alpha.2 used in macOS QA only; not bundled or independently approved"
   },
   "commands": {
@@ -91,12 +91,12 @@
     "native_api_target": "Windows 10: _WIN32_WINNT=0x0A00 and WINVER=0x0A00"
   },
   "verification_limits": [
-    "Byte for byte reproducibility has not been established.",
-    "macOS 14 compatibility is unverified because host static dependencies emit macOS 15 deployment warnings.",
-    "Windows, Linux and Intel macOS libraries were compiled but full Minecraft sessions on those platforms are unverified.",
-    "GitHub Actions results are separate from the existing local QA evidence.",
-    "Local QA controllers require a graphical desktop and are absent from release JARs.",
-    "Hosted CI artifacts are separately compiled diagnostic builds. Only the exact release assets and hashes in artifacts.json identify the submission candidate. The original binary build source revision is supplied separately from later build portability fixes."
+    "Identical rebuilds have not been verified.",
+    "macOS 14 is untested; host static dependencies produce macOS 15 deployment warnings.",
+    "Windows, Linux and Intel macOS libraries compile, but full Minecraft sessions on those systems are untested.",
+    "GitHub Actions checks and local QA checks are recorded separately.",
+    "QA controllers need a graphical desktop and are excluded from release JARs.",
+    "CI downloads are separate builds. Use artifacts.json to identify the release files for review. The original binary build revision is listed here; later changes fix build portability."
   ],
   "original_binary_build_source_revision": "f628b3fcb121979c2ac2ee76a51650f353ad610f"
 }

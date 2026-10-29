@@ -1,69 +1,69 @@
-# macless approval submission
+# macless approval notes
 
-candidate: 1.0.1, for minecraft java 1.16.1 and 26.3. this package is ready for technical review. it is not an approval notice or a claim that runs using it are legal.
+macless 1.0.1 supports minecraft java 1.16.1 and 26.3. it is ready for review, but it is not approved for submitted runs. no request has been sent to moderators yet.
 
-rules reviewed: [minecraft java edition speedrunning rules v8](https://mc.sr/rules/rules_v8.pdf), with the matching [public rules source](https://github.com/minecraft%2djava%2dedition%2dspeedrunning/rules/blob/main/rules.typ). section numbers below refer to v8. moderator decisions can change the conditions for this candidate.
+these notes use [rules v8](https://mc.sr/rules/rules_v8.pdf) and the matching [rules source](https://github.com/minecraft%2djava%2dedition%2dspeedrunning/rules/blob/main/rules.typ). the section numbers below refer to v8. moderators may set different conditions for this version.
 
-## interface update
+## what it does
 
-this candidate includes direct numeric input, explicit imgui text focus in the 26.3 sdl input manager, fonts baked at their displayed pixel sizes, and corrected wrapping and spacing. the profiler uses smooth text without a heavy shadow, a solid charcoal background, and subtle row separators. the feature restrictions below are retained.
+macless is a client only fabric mod with a bundled jni library. it resizes the game's render target and composites the image into the existing operating system window. dear imgui handles the settings interface.
 
-## what the tool does
+it redraws the currently selected vanilla profiler section, the displayed entity counter, and the block entity percentage when that entry is visible in the selected section. eyezoom magnifies the rendered image and adds its original measuring grid, numbered 1 through 9. it does not detect eyes, measure angles, calculate strongholds, inspect world seeds, look up entity positions, or search profiler branches automatically.
 
-macless is a client only fabric mod with a bundled jni library. it changes the game's render target size and composites the result into the existing window. dear imgui provides its settings interface. it also redraws the currently selected vanilla profiler section, the displayed entity counter, and the block entity percentage when that entry is in the selected section. eyezoom magnifies the rendered game image and draws its original measuring grid, with labels 1 through 9. there is no automatic eye detection, angle measurement, stronghold calculation, world seed inspection, entity position lookup, or profiler branch search.
+overlay content, fonts, position, colors, padding, corners, and size are configurable. obs output and the ninjabrain in game mirror are removed. optional image, browser, desktop, and window layers only display their content; they do not analyze pixels. those sources and their external programs still need to follow the rules.
 
-the gui and overlay styles are retained. overlay content, fonts, position, colors, padding, corners, and size are configurable. obs output and the ninjabrain in game mirror are absent. optional images, browser sources, and desktop/window captures are composition layers; they do not analyze their pixels. their content and external programs still need to meet the rules.
+the current interface keeps the gui and overlay designs, with direct numeric input, imgui text focus connected to the 26.3 sdl input manager, fonts baked at their displayed pixel sizes, and fixes for wrapping and spacing. the profiler uses smooth text without a heavy shadow, a solid charcoal background, and subtle row separators.
 
-## changes made for this candidate
+## restrictions in this version
 
-1. removed automatic traversal of profiler branches. both adapters publish only the section selected through vanilla numeric navigation. mapless disappears when that section has no block entity row; selecting the block entity section itself also works. this is a direct internal data adapter, so its approval is still requested below.
-1. capped profiler and mapless percentage text at two decimal places, matching both vanilla profiler displays. chart geometry retains the vanilla percentages rather than inventing new values.
-1. restricted optional key remaps to disjoint, reversible key swaps. assigning an overlapping swap removes the earlier pair. this also normalizes imported profiles. remaps and mode bindings are inactive in chat and normal menus.
-1. capped either source axis at 16,384 pixels and retained the 16 megapixel budget and gpu limits. after entering a world, the first source size exceeding the visible framebuffer locks the only oversized pair for the entire process. another oversized pair is rejected. resetting settings, undo, changing worlds, and returning to the menu do not clear it. eyezoom and preemptive share the same pair by default. smaller sources remain available. shrinking the window after a lock can make a previously small mode count as oversized, so that switch may be refused.
-1. clamped effective mouse turn scaling to the range achievable by vanilla sensitivity settings. the requested normal and eyezoom multipliers remain configurable, but the resulting cubic gain cannot go below vanilla sensitivity 0 or above vanilla sensitivity 1. at vanilla sensitivity 0.5, the effective multiplier is limited to 0.064 through 4.096. switching automatically with a mode still needs a ruling.
-1. removed locally calculated ninjabrain prediction bearings, correction angles, and nether coordinates. the panel displays fields returned by the bot, plus its usual chunk to block coordinate formatting. measurement corrections supplied directly by the bot remain visible.
-1. removed the embedded fabric api components. vanilla resource pack registration supplies the mod shaders. no fabric api jar is required or bundled.
-1. separated qa builds from submission builds. release jars have verification disabled at compile time and omit the world, fixture, control, screenshot controller, and benchmark helpers. changing qa system properties does not enable those helpers in a release build.
-1. log the bundled native library's platform, filename, sha256, and sha512 when loaded. these logs identify the library; they are not a replacement for an approved logging mod if moderators require one.
-1. moved the default profiler above the hotbar. custom layouts still need to keep recording requirements visible.
+1. both adapters use the profiler section selected with vanilla number keys. mapless hides unless its block entity row is visible or the block entity section itself is selected.
+2. profiler and mapless text shows at most two decimal places, matching both vanilla displays. pie geometry keeps the original vanilla percentages.
+3. optional remaps are disjoint, reversible key swaps. overlapping assignments remove the old pair, and imported profiles are normalized too. remaps and mode shortcuts stay inactive in chat and normal menus.
+4. sources keep the 16,384 pixel axis cap, 16 megapixel budget, and gpu limits. once in a world, the first pair exceeding the visible framebuffer locks the only oversized pair until process exit. settings resets, undo, world changes, and menus cannot clear it. eyezoom and preemptive share this pair by default; other oversized pairs are rejected. smaller sources are allowed, but shrinking the window may make a previously small mode oversized and block the switch.
+5. normal and eyezoom multipliers are configurable, but effective cubic mouse gain stays between vanilla sensitivity 0 and 1. at vanilla sensitivity 0.5, the effective multiplier is limited to 0.064 through 4.096. automatic switching with a mode still needs a ruling.
+6. locally calculated ninjabrain prediction bearings, correction angles, and nether coordinates are removed. the panel shows bot fields, including measurement corrections, with the usual chunk to block coordinate formatting.
+7. fabric api is not required or bundled. vanilla resource pack registration supplies the shaders.
+8. release jars disable verification at compile time and omit world, fixture, control, screenshot controller, and benchmark helpers. qa system properties cannot enable them.
+9. loading a native library logs its platform, filename, sha256, and sha512. required logging mods still need a ruling.
+10. the default profiler sits above the hotbar. custom layouts must keep required recording information visible.
 
-## rulings requested
+## questions for moderators
 
-1. **profiler and counter access   a.11.9 and a.10.6.** may a reviewed fabric mod redraw the current vanilla profiler section and entity counter from the same client side data, including a selected block entity percentage? the generic new tool f3 data exception does not establish permission for this by itself. vanilla numeric selection is preserved, hidden branches are not traversed, and percentages use vanilla precision. this is not an ocr implementation. please rule explicitly on the adapters and rendered views.
-2. **virtual resizing   a.10.4.a b.** does the window resolution exception cover resizing a render target inside an unchanged operating system window? our bound uses the visible framebuffer, which is stricter than the monitor's full dimensions, and our one oversized pair lock lasts until process exit. please confirm both the virtual rendering approach and the boundary/retina interpretation.
-3. **mode sensitivity   a.1.4.** is automatic mode specific sensitivity acceptable when effective turn gain stays within the vanilla slider's attainable range? it multiplies mouse deltas before the vanilla player turn call rather than writing the options slider. smoothing and input granularity can differ; equivalent gain alone does not establish approval.
-4. **native libraries and logging   a.8.5 and a.8.16.** please review each bundled dll, dylib, and so together with its fabric jar. these are extracted from the jar and loaded through system.load; they are not separately injected into an arbitrary process. please specify whether the injected library rule and liblogger requirement apply, and which approved logging arrangement is required on each platform. the self reported hashes are informational.
-5. **ninjabrain api   a.11.7.a.i.** please confirm parity for the gui display and coordinate conversion `chunk * 16 + 4`. prediction distance and certainty, eye records, and blind/divine messages come from the bot. no new prediction bearing is calculated. the user's external bot version and settings remain subject to their own rules.
-6. **versions and renderers   a.8.5 and the version specific lwjgl rules.** please approve exact builds separately for 1.16.1 and 26.3. support for opengl, vulkan, or an external metal backend does not approve that backend, mcopt, a launcher runtime, or another mod. the v8 text does not explicitly settle every 26.3 renderer/runtime combination.
-7. **composition and recordings   a.2.9 and a.10.6.** please confirm permitted eyezoom crops, extracted overlays, and passive browser/capture layers. runners must keep the hotbar, required pause text, toasts, and timer visible in the recording, and must not use an external layer for prohibited screen reading. custom positioning can obscure required information even though the default profiler has been raised.
+1. **profiler and counters (a.11.9 and a.10.6).** can a reviewed fabric mod read and redraw the current vanilla profiler section and entity counter, including the selected block entity percentage? the new tool f3 data exception alone does not permit this adapter. it uses internal data rather than ocr, keeps vanilla numeric selection, does not traverse hidden branches, and uses vanilla percentage precision. please review both the data access and the rendered overlays.
+2. **resizing (a.10.4.a and a.10.4.b).** does the window resolution exception also cover resizing a render target inside an unchanged operating system window? the limit uses the visible framebuffer, which is smaller than or equal to the monitor's full dimensions, and only one oversized pair is allowed until the process exits. does this approach meet the rule, including its bounds and retina interpretation?
+3. **sensitivity (a.1.4).** is automatic mode specific sensitivity allowed when effective gain stays within the vanilla slider's range? it multiplies mouse deltas before the vanilla player turn call and leaves the options slider alone. smoothing and input granularity can differ, so the matching gain still needs review.
+4. **native libraries and logging (a.8.5 and a.8.16).** can each bundled dll, dylib, and so be approved with its fabric jar? the libraries are extracted from the jar and loaded through `system.load` inside minecraft, rather than injected into an arbitrary process. do the injected library rule and liblogger requirement apply? which approved logging setup is needed on each platform? the mod's own hash logs only report the loaded file.
+5. **ninjabrain (a.11.7.a.i).** is the gui display and `chunk * 16 + 4` coordinate conversion allowed? prediction distance and certainty, eye records, and blind/divine messages come from the bot. the mod does not calculate a new prediction bearing. the external bot version and settings still need to meet their own rules.
+6. **versions and renderers (a.8.5 and the version specific lwjgl rules).** can the exact 1.16.1 and 26.3 builds be approved separately, and under which renderer and runtime conditions? support for opengl, vulkan, and external metal does not approve mcopt, the backend, the launcher runtime, or other mods. v8 does not settle every 26.3 renderer and runtime combination.
+7. **composition and recordings (a.2.9 and a.10.6).** which eyezoom crops, extracted overlays, and passive browser or capture layers are allowed? recordings must keep the hotbar, required pause text, toasts, and timer visible. external layers cannot be used for prohibited screen reading. custom layouts can cover required information even though the default profiler has been raised.
 
-machine readable questions are in `rulings.json`; all are pending. if a feature needs a different restriction, a new candidate and new artifact hashes should be reviewed.
+all seven questions remain pending in `rulings.json`. any required feature changes need a new build and new hashes for review.
 
-## reviewer entry points
+## where to look in the source
 
-1. `native/core.cpp`: settings migration, resolution lock, key swaps, and effective sensitivity.
-1. `native/input.cpp`: gameplay input gating and physical key chords.
-1. `native/features.cpp`: current section only mapless selection.
-1. `native/ui.cpp` and `native/overlays.cpp`: gui, measuring grid, profiler geometry, rounding, and custom layout.
-1. [src/main/java/dev/riye/toolscreen/mixin/profilermixin.java](../src/main/java/dev/riye/toolscreen/mixin/%50rofiler%4dixin.java): 26.3 selected section capture and vanilla pie suppression.
-1. [legacy/src/main/java/dev/riye/toolscreen/mixin/legacyminecraftmixin.java](../legacy/src/main/java/dev/riye/toolscreen/mixin/%4cegacy%4dinecraft%4dixin.java): 1.16.1 profiler capture.
-1. both mouse mixins: sensitivity integration.
-1. [shared/java/dev/riye/toolscreen/nativebridge.java](../shared/java/dev/riye/toolscreen/%4eative%42ridge.java): bundled library extraction/loading, hash logging, and jni contract.
-1. `native/ninja_macos.mm`, `native/ninja_desktop.cpp`, and [shared/java/dev/riye/toolscreen/ninjabrainclient.java](../shared/java/dev/riye/toolscreen/%4einjabrain%43lient.java): external bot transport and field parsing.
-1. both gradle build files: release/qa split, dependencies, and resources. `.github/workflows/build.yml` provides platform builds; a workflow file is not evidence of a hosted successful run.
+1. `native/core.cpp`: settings migration, the resolution lock, key swaps, and effective sensitivity.
+2. `native/input.cpp`: gameplay input gating and physical key chords.
+3. `native/features.cpp`: mapless selection from the current section only.
+4. `native/ui.cpp` and `native/overlays.cpp`: the gui, measuring grid, pie geometry, rounding, and layouts.
+5. [26.3 profiler mixin](../src/main/java/dev/riye/toolscreen/mixin/%50rofiler%4dixin.java): selected section capture and hiding the vanilla pie.
+6. [1.16.1 minecraft mixin](../legacy/src/main/java/dev/riye/toolscreen/mixin/%4cegacy%4dinecraft%4dixin.java): profiler capture.
+7. both mouse mixins: sensitivity integration.
+8. [native bridge](../shared/java/dev/riye/toolscreen/%4eative%42ridge.java): library extraction and loading, hash logs, and the jni interface.
+9. `native/ninja_macos.mm`, `native/ninja_desktop.cpp`, and the [ninjabrain client](../shared/java/dev/riye/toolscreen/%4einjabrain%43lient.java): bot transport and field parsing.
+10. both gradle build files: release and qa settings, dependencies, and resources. `.github/workflows/build.yml` builds the platform versions; its results are linked below.
 
-## files and review status
+## files and checks
 
-the release package contains both universal release jars, source, third party notices, checksums, a gallery, and verification results. `artifacts.json` records the unchanged binary identities, `build.json` provides build instructions and dependencies, and `evidence/verification.json` records the validation scope. `checklist.json` identifies the remaining review actions. each jar includes macos arm64/intel, windows x64, and linux x64/arm64 natives. `checksums.json` identifies jar, native, helper, and source hashes with sha256 and sha512. `verification.json` separates compiled targets from live tests and identifies qa versus release checks. captured evidence predates public source publication. current publication status is in `checklist.json`, and the [source comparison](evidence/source%2dcomparison.json) records the unchanged runtime sources.
+the public repository and versioned release include both universal jars, source with a permanent revision, third party notices, hashes, the gallery, and checks. each jar bundles macos arm64 and intel, windows x64, and linux x64 and arm64 libraries.
 
-the public repository and versioned release provide the source, exact binaries, and permanent revision. publication status is recorded in `checklist.json`. no request has been sent to moderators. the release notes identify the reviewed source commit, both exact jar hashes, and native hashes. the release is marked as a candidate rather than an approval. the copied prism test instance is isolated; none of its other mods are endorsed by this package. macos 14 is the compilation target, but the apple silicon host's system built static dependencies emit macos 15 deployment warnings; macos 14 runtime compatibility has not been established.
+`artifacts.json` lists release binary hashes. `build.json` has the build commands, dependencies, and original binary build revision. the release's `checksums.json` lists sha256 and sha512 hashes for jars, native libraries, the capture helper, and source. its `verification.json` separates compiled targets from live minecraft tests and qa checks from release startup checks. release notes link the source commit and jar and native hashes.
 
-## suggested submission text
+`checklist.json` tracks publication and review. the [local verification record](evidence/verification.json) predates public source publication. the [source comparison](evidence/source%2dcomparison.json) records unchanged runtime files. newer build setup fixes cover windows java paths, the windows api target, and native test exports.
 
-requesting review of macless 1.0.1 for minecraft 1.16.1 and 26.3. it is a fabric/jni resizing and composition tool with a dear imgui settings interface, eyezoom, selected section profiler/mapless views, an entity counter, and a ninjabrain api panel. this candidate removes automatic profiler traversal, limits displayed precision to vanilla's two decimals, uses reversible key swaps, bounds effective sensitivity to vanilla's range, and locks one oversized source resolution per process. source, exact binaries, sha256/sha512 hashes, platform coverage, and pending rules questions are attached. please rule on the seven questions above and specify any platform/version or logging conditions. this request does not presume approval.
+hosted builds and native contracts passed on windows x64, linux x64 and arm64, and macos arm64 and intel. both universal jars were assembled successfully. the [hosted build record](evidence/hosted%2dbuild.json) links the source revision and job results. ci downloads are separate builds; use `artifacts.json` to identify the release files for review.
 
-## hosted checks
+full minecraft sessions on windows, linux, and intel macos remain unverified. the prism test instance was an isolated copy, and this review does not approve its other mods. macos 14 is the compilation target, but the apple silicon host's static dependencies emit macos 15 deployment warnings. macos 14 runtime compatibility remains unverified too.
 
-hosted builds and native contracts passed on windows x64, linux x64 and arm64, and macos arm64 and intel. both universal jars were assembled successfully. the [hosted build record](evidence/hosted%2dbuild.json) identifies the source revision and job results. these are separate diagnostic builds, not replacements for the exact candidate hashes. full minecraft runtime coverage on windows, linux, and intel macos remains unverified.
+## submission draft
 
-the original candidate build source is identified in `build.json`. current source includes build setup fixes for windows java paths, the windows api target, and native test exports. runtime source files are unchanged.
+please review macless 1.0.1 for minecraft 1.16.1 and 26.3. the source, release jars, sha256 and sha512 hashes, platform checks, and seven questions are included above. please review the resizing, composition, eyezoom, profiler, mapless, counter, ninjabrain, and input features, and confirm the version, platform, and logging requirements. approval is still pending.
