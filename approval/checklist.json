@@ -7,7 +7,7 @@
   "items": [
     {
       "item": "public source repository",
-      "status": "pending publication verification"
+      "status": "verified public"
     },
     {
       "item": "exact release jars and bundled native hashes",
@@ -54,6 +54,14 @@
     {
       "item": "Windows, Linux, Intel macOS and macOS 14 runtime coverage",
       "status": "not established; limits disclosed"
+    },
+    {
+      "item": "release binaries and review bundle",
+      "status": "prepared for publication",
+      "url": "https://github.com/riye-prog/macless/releases/tag/v1.0.1"
     }
-  ]
+  ],
+  "runtime_source_revision": "f628b3fcb121979c2ac2ee76a51650f353ad610f",
+  "runtime_source_url": "https://github.com/riye-prog/macless/tree/f628b3fcb121979c2ac2ee76a51650f353ad610f",
+  "hosted_build_url": "https://github.com/riye-prog/macless/actions/runs/40862900587"
 }

@@ -3,7 +3,7 @@
   "rules": "https://mc.sr/rules/rules_v8.pdf",
   "submitted": false,
   "approved": false,
-  "public_source_published": false,
+  "public_source_published": true,
   "questions": [
     {
       "id": "profiler",
@@ -50,5 +50,6 @@
   ],
   "reviewed_rules_sha256": "2d6debfe08d3654fc7414a9551335d61a154a3969ab2608c16ed34f69a9e91ae",
   "reviewed_at": "2026-10-28",
-  "rules_rechecked_at": "2026-10-29"
+  "rules_rechecked_at": "2026-10-29",
+  "repository": "https://github.com/riye-prog/macless"
 }

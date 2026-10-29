@@ -1,0 +1,21 @@
+{
+  "candidate": "1.0.1",
+  "checked_at": "2026-10-29",
+  "runtime_source_revision": "f628b3fcb121979c2ac2ee76a51650f353ad610f",
+  "runtime_and_binary_build_source_unchanged": true,
+  "runtime_source_files_compared": 115,
+  "changed_documentation_and_tooling": [
+    ".gitignore",
+    "approval/readme.md",
+    "approval/rulings.json",
+    "gradle/wrapper/gradle-wrapper.properties",
+    "readme.md",
+    "tools/package_production.py",
+    "tools/verify_approval.py",
+    "tools/verify_release_boot.py",
+    "tools/verify_runtime.py"
+  ],
+  "missing_files": [],
+  "tested_manifest_sha256": "381a965ec978278bd95204186bf2c3381e4a665f88831661b953f2bbac095459",
+  "note": "The captured local verification record predates public source publication. Current publication status is in rulings.json and checklist.json. Runtime code and binary build scripts are identical to the tested release; documentation, portable QA paths and wrapper verification were prepared for publication."
+}
