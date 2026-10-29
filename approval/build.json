@@ -95,6 +95,8 @@
     "macOS 14 compatibility is unverified because host static dependencies emit macOS 15 deployment warnings.",
     "Windows, Linux and Intel macOS libraries were compiled but full Minecraft sessions on those platforms are unverified.",
     "GitHub Actions results are separate from the existing local QA evidence.",
-    "Local QA controllers require a graphical desktop and are absent from release JARs."
-  ]
+    "Local QA controllers require a graphical desktop and are absent from release JARs.",
+    "Hosted CI artifacts are separately compiled diagnostic builds. Only the exact release assets and hashes in artifacts.json identify the submission candidate. The original binary build source revision is supplied separately from later build portability fixes."
+  ],
+  "original_binary_build_source_revision": "f628b3fcb121979c2ac2ee76a51650f353ad610f"
 }

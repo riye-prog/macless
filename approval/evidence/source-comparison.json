@@ -26,6 +26,11 @@
     {
       "path": "CMakeLists.txt",
       "change": "Declare Windows 10 as the native Windows API target, matching the capture backend minimum and the original cross toolchain. Runtime source code is unchanged."
+    },
+    {
+      "path": "CMakeLists.txt",
+      "change": "Make the intended C API exports explicit with MinGW for native contract testing. The original submitted Windows binary exports JNI methods; the public runtime source is unchanged."
     }
-  ]
+  ],
+  "original_binary_build_source_revision": "f628b3fcb121979c2ac2ee76a51650f353ad610f"
 }
