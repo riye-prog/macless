@@ -1,0 +1,40 @@
+{
+  "candidate": "1.0.1",
+  "run_id": "40865626352",
+  "url": "https://github.com/riye-prog/macless/actions/runs/40865626352",
+  "source_revision": "a38ce88bff62dd3427c5c471db5f5bd57de07b66",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "native (macos-15-intel)",
+      "conclusion": "success",
+      "url": "https://github.com/riye-prog/macless/actions/runs/40865626352/job/123419558370"
+    },
+    {
+      "name": "native (windows-2022)",
+      "conclusion": "success",
+      "url": "https://github.com/riye-prog/macless/actions/runs/40865626352/job/123419558690"
+    },
+    {
+      "name": "native (ubuntu-24.04-arm)",
+      "conclusion": "success",
+      "url": "https://github.com/riye-prog/macless/actions/runs/40865626352/job/123419558758"
+    },
+    {
+      "name": "native (ubuntu-22.04)",
+      "conclusion": "success",
+      "url": "https://github.com/riye-prog/macless/actions/runs/40865626352/job/123419558828"
+    },
+    {
+      "name": "native (macos-15)",
+      "conclusion": "success",
+      "url": "https://github.com/riye-prog/macless/actions/runs/40865626352/job/123419559056"
+    },
+    {
+      "name": "jars",
+      "conclusion": "success",
+      "url": "https://github.com/riye-prog/macless/actions/runs/40865626352/job/123421347499"
+    }
+  ],
+  "scope": "Separately compiled hosted builds and native/desktop contracts. These results do not establish full Minecraft runtime behavior on Windows, Linux or Intel macOS. Only the separately identified release hashes name the submission candidate."
+}

@@ -59,9 +59,15 @@
       "item": "release binaries and review bundle",
       "status": "exact hashes and versioned download links provided; release page is the publication authority",
       "url": "https://github.com/riye-prog/macless/releases/tag/v1.0.1"
+    },
+    {
+      "item": "five hosted native builds and universal JAR assembly",
+      "status": "passed",
+      "path": "evidence/hosted-build.json",
+      "scope": "diagnostic builds; release asset identities remain in artifacts.json"
     }
   ],
   "runtime_source_revision": "f628b3fcb121979c2ac2ee76a51650f353ad610f",
   "runtime_source_url": "https://github.com/riye-prog/macless/tree/f628b3fcb121979c2ac2ee76a51650f353ad610f",
-  "hosted_build_url": "https://github.com/riye-prog/macless/actions"
+  "hosted_build_url": "https://github.com/riye-prog/macless/actions/runs/40865626352"
 }

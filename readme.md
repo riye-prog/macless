@@ -42,7 +42,7 @@ use java 25, python 3, cmake 3.24 or newer, and a c++20 compiler. macos also nee
 ./gradlew assemble :legacy:assemble check
 ```
 
-the platform workflow builds five native targets and assembles both universal jars. detailed release and qa commands, dependency versions, and local verification setup are in [build details](approval/build.json). qa controllers and fixtures are excluded from release jars.
+the platform workflow builds five native targets and assembles both universal jars. [hosted checks](approval/evidence/hosted%2dbuild.json) passed for this source. detailed release and qa commands, dependency versions, and local verification setup are in [build details](approval/build.json). qa controllers and fixtures are excluded from release jars.
 
 ## license
 

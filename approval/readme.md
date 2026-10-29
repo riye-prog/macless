@@ -61,3 +61,9 @@ the public repository and versioned release provide the source, exact binaries, 
 ## suggested submission text
 
 requesting review of macless 1.0.1 for minecraft 1.16.1 and 26.3. it is a fabric/jni resizing and composition tool with a dear imgui settings interface, eyezoom, selected section profiler/mapless views, an entity counter, and a ninjabrain api panel. this candidate removes automatic profiler traversal, limits displayed precision to vanilla's two decimals, uses reversible key swaps, bounds effective sensitivity to vanilla's range, and locks one oversized source resolution per process. source, exact binaries, sha256/sha512 hashes, platform coverage, and pending rules questions are attached. please rule on the seven questions above and specify any platform/version or logging conditions. this request does not presume approval.
+
+## hosted checks
+
+hosted builds and native contracts passed on windows x64, linux x64 and arm64, and macos arm64 and intel. both universal jars were assembled successfully. the [hosted build record](evidence/hosted%2dbuild.json) identifies the source revision and job results. these are separate diagnostic builds, not replacements for the exact candidate hashes. full minecraft runtime coverage on windows, linux, and intel macos remains unverified.
+
+the original candidate build source is identified in `build.json`. current source includes build setup fixes for windows java paths, the windows api target, and native test exports. runtime source files are unchanged.
