@@ -1,6 +1,7 @@
 name: build
 on:
   push:
+    branches: ['**']
   pull_request:
   workflow_dispatch:
 permissions:
@@ -10,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: [ubuntu-22.04, ubuntu-24.04-arm, windows-2022, macos-14, macos-15-intel]
+        runner: [ubuntu-22.04, ubuntu-24.04-arm, windows-2022, macos-15, macos-15-intel]
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v4

@@ -5,7 +5,7 @@
     "java": "25 for builds and Minecraft 26.3; Java 17 minimum for the 1.16.1 release runtime",
     "cmake": "3.24 or newer",
     "python": "3.12 or newer",
-    "compiler": "C++17; AppleClang on macOS, MinGW GCC on Windows, Zig/GCC on Linux",
+    "compiler": "C++20; AppleClang on macOS, MinGW GCC on Windows, Zig/GCC on Linux",
     "gradle": "9.7.0 via checksum verified wrapper"
   },
   "dependencies": {

@@ -36,7 +36,7 @@ this version is a candidate for moderator review. it is not approved for submitt
 
 ## build
 
-use java 25, python 3, cmake 3.24 or newer, and a c++17 compiler. macos also needs freetype and libpng. the gradle wrapper verifies its distribution checksum.
+use java 25, python 3, cmake 3.24 or newer, and a c++20 compiler. macos also needs freetype and libpng. the gradle wrapper verifies its distribution checksum.
 
 ```sh
 ./gradlew assemble :legacy:assemble check
