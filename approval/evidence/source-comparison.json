@@ -22,6 +22,10 @@
     {
       "path": "build.gradle",
       "change": "Normalize Java home path separators for CMake JNI discovery on Windows. Compilation flags and runtime sources are unchanged."
+    },
+    {
+      "path": "CMakeLists.txt",
+      "change": "Declare Windows 10 as the native Windows API target, matching the capture backend minimum and the original cross toolchain. Runtime source code is unchanged."
     }
   ]
 }

@@ -87,7 +87,8 @@
       "Microsoft Edge",
       "Google Chrome",
       "Chromium"
-    ]
+    ],
+    "native_api_target": "Windows 10: _WIN32_WINNT=0x0A00 and WINVER=0x0A00"
   },
   "verification_limits": [
     "Byte for byte reproducibility has not been established.",
