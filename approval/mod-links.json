@@ -1,10 +1,10 @@
 {
-  "1.16.1": {
-    "link": "https://github.com/riye-prog/macless/releases/download/v1.0.1/macless-1.0.1%2B1.16.1.jar",
-    "hash": "75de3840ebb4d266cd506a3f4c1ada09f7f2e84c2e611ef83dae60228765eba2a1e8139e1e10feee877a0329afd72df3a22d7c61e91280e85c234c60d696d90e"
-  },
   "26.3": {
-    "link": "https://github.com/riye-prog/macless/releases/download/v1.0.1/macless-1.0.1%2B26.3.jar",
-    "hash": "c228cbb3905fe9aa17cf90c6ce334b12af91639d0cf057f6c79635c1868cb5aba838bf49cd391ad8475767cde7aaa83ff2f52fcda298c3606918e9ba9b3ee89b"
+    "link": "https://github.com/riye-prog/macless/releases/download/v1.0.2/macless-1.0.2%2B26.3.jar",
+    "hash": "668feff938b7976caac19fd59c5fd0bb47d91bc6ca926bab55e3eacc8fa0013c85f0e3e1459ee971fa9459abc0a31cb03d78a8d537ad385a41161331d7544985"
+  },
+  "1.16.1": {
+    "link": "https://github.com/riye-prog/macless/releases/download/v1.0.2/macless-1.0.2%2B1.16.1.jar",
+    "hash": "cf43c4e34c98e3bc8f02c153ff225dbe252aba2959effb8dbca741d14cc9cea320c8cdc4efb8b44c2d598ba2588e98a0ff015d1f7f83314ee8b759730b11f424"
   }
 }

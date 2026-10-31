@@ -62,7 +62,7 @@ public final class Compositor {
     }
 
     public static void prepare(GameRenderer renderer, GameRenderState state) {
-        if (!Toolscreen.ready) return;
+        if (!Toolscreen.resourcesReady()) return;
         Minecraft game = Minecraft.getInstance();
         Toolscreen.maximumTextureSize = RenderSystem.getDevice().getDeviceInfo().limits().maxTextureSize();
         int width = state.windowRenderState.width;
@@ -85,14 +85,14 @@ public final class Compositor {
     }
 
     public static GpuTextureView composeForOutput(CommandEncoder encoder,GpuTextureView source,int route){
-        if (!Toolscreen.ready || Toolscreen.failed) return source;
+        if (!Toolscreen.resourcesReady() || Toolscreen.failed) return source;
         Minecraft game = Minecraft.getInstance();
         int width = game.getWindow().getWidth();
         int height = game.getWindow().getHeight();
         if (width <= 0 || height <= 0) return source;
         boolean suspended = Toolscreen.suspended();
         double[] settings = NativeBridge.snapshot();
-        if (suspended&&route==0) return source;
+        if (Toolscreen.resizingSuspended()&&route==0) return source;
         GpuTexture texture = source.texture();
         float[] plan = NativeBridge.planForOutput(width, height, texture.getWidth(0), texture.getHeight(0), suspended, (System.nanoTime() - START_NANOS) / 1.0e9,route);
         if(((int)settings[133]&(1<<route))==0){settings[8]=settings[9]=settings[10]=0;}

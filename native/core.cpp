@@ -123,7 +123,7 @@ Configuration defaults() {
     s[114]=1;s[115]=1;s[116]=122.0/255;s[117]=21.0/255;s[118]=162.0/255;s[119]=1;
     s[123]=1;s[125]=.09;s[126]=.065;s[127]=.15;
     result.modes = {{"Fullscreen",0,0},{"Thin",384,0},{"Wide",0,540},{"EyeZoom",384,16384},{"Preemptive",384,16384}};
-    s[128]=1;s[129]=0;s[130]=60;s[132]=1;s[133]=1;s[134]=1;s[135]=3;s[136]=.73;s[137]=.16;s[138]=.25;s[139]=18;s[140]=.94;s[141]=3;s[142]=1;s[143]=250;s[153]=1;s[145]=1;s[146]=.15;
+    s[128]=1;s[129]=0;s[130]=60;s[132]=1;s[133]=1;s[134]=1;s[135]=3;s[136]=.73;s[137]=.16;s[138]=.25;s[139]=18;s[140]=.94;s[141]=3;s[142]=1;s[143]=250;s[153]=1;s[145]=1;
     for(int i=0;i<5;++i)result.bindings[i]={toolscreen::scanFromCode(int(s[64+i]))};
     result.bindings[16]={12,224};
     result.options["ninja_url"]="http://127.0.0.1:52533";result.options["overlay_design"]="vanilla-3";result.options["eyezoom_grid"]="classic-9";result.options["approval_profile"]="v8-review-1";result.options["profiler_design"]="smooth-1";
@@ -155,7 +155,6 @@ double sanitize(int index, double value) {
     if (index == 19) return std::round(std::clamp(value, 1.0, 9.0));
     if (index == 34) return std::clamp(value, .75, 2.0);
     if (index == 39 || index == 40) return std::clamp(value, .001, 20.0);
-    if(index==146)return std::clamp(value,.000001,20.0);
     if(index==145)return value>=.5?1:0;
     if (index == 41 || (index >= 64 && index < 80)) return std::round(std::clamp(value, 0.0, 2147483647.0));
     if (index == 42 || (index >= 80 && index < 96)) return std::round(std::clamp(value, 0.0, 4095.0));
@@ -314,7 +313,6 @@ bool set(int index,double value) {
         if(index==0&&!allowResolution(config,int(value)))return false;
         if((index>=1&&index<=6)||index==36||index==37){auto candidate=config;candidate.settings[index]=value;if(!allowResolution(candidate,int(candidate.settings[0])))return false;}
         if((index==39||index==40)&&config.settings[38]<.5){recordEdit(index);config.settings[38]=1;}
-        if(index==146&&config.settings[145]<.5){recordEdit(index);config.settings[145]=1;}
         if(index==39||index==40){int other=index==39?40:39;if(config.settings[other]!=value){recordEdit(index);config.settings[other]=value;}}
         if (config.settings[index]!=value) { recordEdit(index);config.settings[index]=value;if(index>=64&&index<96){int mode=(index-64)%16;auto keys=modifierScans(((int(config.settings[80+mode])&1)?1:0)|((int(config.settings[80+mode])&2)?64:0)|((int(config.settings[80+mode])&4)?256:0)|((int(config.settings[80+mode])&8)?1024:0));int key=scanFromCode(int(config.settings[64+mode]));if(key>0)keys.push_back(key);config.bindings[mode]=keys;}}
     }
@@ -447,7 +445,8 @@ int keyEvent(int keycode,int modifiers,int action,bool panelOpen){
 }
 std::array<double,2> sensitivity(){
     std::lock_guard lock(stateMutex);const auto& s=config.settings;
-    double requested=s[128]<.5?1:(int(s[0])==3&&s[145]>.5)?s[146]:s[38]>.5?s[39]:1;
+    if(s[128]<.5||(int(s[0])==3&&s[145]>.5))return {1,1};
+    double requested=s[38]>.5?s[39]:1;
     double base=std::pow(vanillaSensitivity*.6+.2,3);
     double value=std::clamp(base*requested,std::pow(.2,3),std::pow(.8,3))/base;
     return {value,value};

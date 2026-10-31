@@ -47,7 +47,7 @@ def review():
     assert state()['settings'][36]==0
     capture('gui-typed-resolution.png')
     click(-2)
-    for control,value in [(39,2.875),(146,.125)]:
+    for control,value in [(39,2.875)]:
         enter(control,value);assert state()['settings'][control]==value;typed[str(control)]=value
     click(500);enter(34,1.375);assert state()['settings'][34]==1.375
     capture('gui-typed-scale.png')

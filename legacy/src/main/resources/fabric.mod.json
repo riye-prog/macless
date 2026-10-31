@@ -1,7 +1,7 @@
 {
   "schemaVersion":1,
   "id":"toolscreen-native",
-  "version":"1.0.1+1.16.1",
+  "version":"1.0.2+1.16.1",
   "name":"Macless",
   "description":"Native speedrunning compositor for Minecraft 1.16.1 on macOS, Windows, and Linux.",
   "environment":"client",

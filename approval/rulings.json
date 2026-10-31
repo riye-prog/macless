@@ -1,5 +1,5 @@
 {
-  "candidate": "1.0.1",
+  "candidate": "1.0.2",
   "rules": "https://mc.sr/rules/rules_v8.pdf",
   "submitted": false,
   "approved": false,
@@ -20,7 +20,7 @@
     {
       "id": "sensitivity",
       "sections": "a.1.4",
-      "question": "Automatic mode-specific mouse scaling bounded to vanilla-equivalent gain",
+      "question": "Automatic mode-specific mouse count scaling, fixed godsens camera sensitivity, integer count quantization, and normal-rate compensation",
       "status": "pending moderator ruling"
     },
     {

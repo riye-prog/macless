@@ -2,7 +2,7 @@ plugins {
     id 'net.fabricmc.fabric-loom' version '1.18.4'
 }
 
-version = '1.0.1+26.3'
+version = '1.0.2+26.3'
 group = 'dev.riye'
 def verificationBuild = rootProject.hasProperty('verificationBuild') || rootProject.hasProperty('world') || rootProject.hasProperty('smoke')
 base { archivesName = verificationBuild ? 'macless-qa' : 'macless' }
@@ -82,6 +82,16 @@ tasks.register('desktopTest', JavaExec) {
     mainClass = 'dev.riye.toolscreen.DesktopContractTest'
     if (project.hasProperty('browserExecutable')) args project.property('browserExecutable').toString()
 }
+tasks.register('boatEyeTest', JavaExec) {
+    dependsOn 'desktopVerificationClasses'
+    classpath = sourceSets.desktopVerification.runtimeClasspath
+    mainClass = 'dev.riye.toolscreen.BoatEyeContractTest'
+}
+tasks.register('menuTest', JavaExec) {
+    dependsOn 'desktopVerificationClasses'
+    classpath = sourceSets.desktopVerification.runtimeClasspath
+    mainClass = 'dev.riye.toolscreen.MenuCoordinatesTest'
+}
 tasks.register('desktopJniTest', JavaExec) {
     dependsOn 'desktopVerificationClasses', 'buildNative'
     onlyIf { nativeOs != 'macos' && prebuiltNatives == null }
@@ -90,7 +100,7 @@ tasks.register('desktopJniTest', JavaExec) {
     args new File(nativeDirectory, nativeLibrary).absolutePath
     if (project.hasProperty('browserExecutable')) args project.property('browserExecutable').toString()
 }
-check.dependsOn 'nativeTest', 'desktopTest', 'desktopJniTest'
+check.dependsOn 'nativeTest', 'desktopTest', 'desktopJniTest', 'boatEyeTest', 'menuTest'
 
 processResources {
     dependsOn 'buildNative'

@@ -14,6 +14,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 LIBRARY = ctypes.CDLL(os.environ.get("TOOLSCREEN_TEST_LIBRARY",str(ROOT / "build/native/libtoolscreen.dylib")))
 LIBRARY.ts_ui_display_scale.argtypes=[ctypes.c_float]
 LIBRARY.ts_sensitivity.argtypes=[ctypes.POINTER(ctypes.c_double)]
+LIBRARY.ts_runtime_context.argtypes=[ctypes.c_int,ctypes.c_double]
 LIBRARY.ts_set.argtypes = [ctypes.c_int, ctypes.c_double]
 LIBRARY.ts_get.argtypes = [ctypes.c_int]
 LIBRARY.ts_get.restype = ctypes.c_double
@@ -182,17 +183,28 @@ class NativeTests(unittest.TestCase):
         LIBRARY.ts_set(39,1.5);self.assertEqual(LIBRARY.ts_get(38),1)
         LIBRARY.ts_set(128,0);LIBRARY.ts_sensitivity(values);self.assertEqual(list(values),[1,1])
 
-    def test_eyezoom_replaces_normal_sensitivity_and_restores_it(self):
-        values=(ctypes.c_double*2)();LIBRARY.ts_set(39,20);LIBRARY.ts_set(146,.01234567);LIBRARY.ts_set(0,3)
-        LIBRARY.ts_sensitivity(values);self.assertAlmostEqual(values[0],.064);self.assertAlmostEqual(values[1],.064)
-        LIBRARY.ts_set(38,0);LIBRARY.ts_sensitivity(values);self.assertAlmostEqual(values[0],.064);self.assertAlmostEqual(values[1],.064)
-        LIBRARY.ts_set(145,0);LIBRARY.ts_sensitivity(values);self.assertEqual(list(values),[1,1])
-        LIBRARY.ts_set(146,.1);self.assertEqual(LIBRARY.ts_get(145),1)
-        LIBRARY.ts_set(38,1);LIBRARY.ts_set(0,2);LIBRARY.ts_sensitivity(values);self.assertAlmostEqual(values[0],4.096);self.assertAlmostEqual(values[1],4.096)
-        LIBRARY.ts_set(0,3);LIBRARY.ts_set(128,0);LIBRARY.ts_sensitivity(values);self.assertEqual(list(values),[1,1])
+    def test_eyezoom_bypasses_normal_multiplier_for_boat_eye_input(self):
+        values=(ctypes.c_double*2)();LIBRARY.ts_set(39,20)
+        try:
+            for sensitivity in [0,.13,.5,.91,1]:
+                LIBRARY.ts_runtime_context(0,sensitivity)
+                base=(sensitivity*.6+.2)**3
+                normal=min(.8**3,max(.2**3,base*20))/base
+                for old_multiplier in [.000001,.15,20]:
+                    LIBRARY.ts_set(146,old_multiplier)
+                    for mode in range(5):
+                        LIBRARY.ts_set(0,mode);LIBRARY.ts_sensitivity(values)
+                        for value in values:self.assertAlmostEqual(value,1 if mode==3 else normal)
+                LIBRARY.ts_set(0,3);LIBRARY.ts_set(38,0);LIBRARY.ts_sensitivity(values);self.assertEqual(list(values),[1,1])
+                LIBRARY.ts_set(38,1);LIBRARY.ts_set(145,0);LIBRARY.ts_sensitivity(values)
+                for value in values:self.assertAlmostEqual(value,normal)
+                LIBRARY.ts_set(146,.1);self.assertEqual(LIBRARY.ts_get(145),0)
+                LIBRARY.ts_set(145,1);LIBRARY.ts_set(128,0);LIBRARY.ts_sensitivity(values);self.assertEqual(list(values),[1,1])
+                LIBRARY.ts_set(128,1)
+        finally:LIBRARY.ts_runtime_context(0,.5)
 
     def test_sensitivity_supports_twenty_and_precise_right_click_entry(self):
-        for key in [39,40,146]:
+        for key in [39,40]:
             LIBRARY.ts_set(key,20);self.assertEqual(LIBRARY.ts_get(key),20)
             LIBRARY.ts_set(key,21);self.assertEqual(LIBRARY.ts_get(key),20)
         LIBRARY.ts_set(38,1);LIBRARY.ts_ui_focus(1)
@@ -225,7 +237,8 @@ class NativeTests(unittest.TestCase):
         for char in 'sensitivity':LIBRARY.ts_ui_text(ord(char))
         frame();LIBRARY.ts_ui_key(13,0,1);frame();LIBRARY.ts_ui_key(13,0,0);frame();frame()
         self.assertEqual(LIBRARY.ts_ui_rect(39,bounds),1)
-        self.assertEqual(LIBRARY.ts_ui_rect(146,bounds),1)
+        self.assertEqual(LIBRARY.ts_ui_rect(145,bounds),1)
+        self.assertEqual(LIBRARY.ts_ui_rect(146,bounds),0)
         LIBRARY.ts_ui_focus(0);frame()
 
     def test_retina_input_controls_receive_precise_mouse_input(self):
@@ -233,7 +246,7 @@ class NativeTests(unittest.TestCase):
         def frame():
             LIBRARY.ts_ui_frame(2880,1482,1/60,packet,len(packet))
         LIBRARY.ts_ui_focus(1);LIBRARY.ts_ui_key(ord('2'),192,1);LIBRARY.ts_ui_key(ord('2'),0,0);frame();frame();frame()
-        self.assertEqual(LIBRARY.ts_ui_rect(146,bounds),1)
+        self.assertEqual(LIBRARY.ts_ui_rect(39,bounds),1)
         self.assertTrue(0<=bounds[0]<bounds[2]<=2880)
         self.assertTrue(0<=bounds[1]<bounds[3]<1380)
         LIBRARY.ts_ui_mouse((bounds[0]+bounds[2])/2,(bounds[1]+bounds[3])/2);frame();LIBRARY.ts_ui_button(1,1);frame();LIBRARY.ts_ui_button(1,0);frame();frame()
@@ -241,7 +254,7 @@ class NativeTests(unittest.TestCase):
         LIBRARY.ts_ui_key(ord('a'),192,1);frame();LIBRARY.ts_ui_key(ord('a'),0,0)
         for char in '0.03141592':LIBRARY.ts_ui_text(ord(char))
         frame();LIBRARY.ts_ui_key(13,0,1);frame();LIBRARY.ts_ui_key(13,0,0);frame()
-        self.assertAlmostEqual(LIBRARY.ts_get(146),.03141592,places=8)
+        self.assertAlmostEqual(LIBRARY.ts_get(39),.03141592,places=8)
         LIBRARY.ts_ui_focus(0);LIBRARY.ts_ui_display_scale(1);frame()
 
     def test_true_render_dimensions_and_menu_restore(self):

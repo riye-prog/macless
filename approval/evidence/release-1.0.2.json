@@ -1,0 +1,42 @@
+{
+  "candidate": "1.0.2",
+  "source_ref": "refs/tags/v1.0.2",
+  "completed_at": "2026-10-31T17:07:59Z",
+  "native_tests": {
+    "passed": true,
+    "count": 70,
+    "platform": "macos-arm64",
+    "log_sha256": "33830c1c21e07dbd67d7193826c69b4d60e6b21ff75f952d4b088c6e270655c6",
+    "log": "logs/1.0.2-native.log"
+  },
+  "java_checks": {
+    "desktop": 14,
+    "menu_coordinates": 3002,
+    "boat_eye": 10242
+  },
+  "gradle_build_passed": true,
+  "gradle_log_sha256": "7ca9d3e7fa21126786495afc23357ba3799855b3fbe146e6770618670181990e",
+  "jar_checks": {
+    "metadata_versions": {
+      "26.3": "1.0.2+26.3",
+      "1.16.1": "1.0.2+1.16.1"
+    },
+    "five_native_platforms_in_each_jar": true,
+    "java_class_targets": {
+      "1.16.1": 17,
+      "26.3": 25
+    },
+    "verification_helpers_absent": true,
+    "native_bytes_match_staged_builds": true,
+    "modern_startup_resource_gate_present": true
+  },
+  "final_jars_launched_in_minecraft": false,
+  "platform_runtime_coverage": "not rerun for 1.0.2",
+  "hosted_workflow": {
+    "status": "pending",
+    "workflow": ".github/workflows/build.yml"
+  },
+  "historical_evidence_version": "1.0.1",
+  "approved": false,
+  "gradle_log": "logs/1.0.2-build.log"
+}

@@ -1,6 +1,6 @@
 # macless approval notes
 
-macless 1.0.1 supports minecraft java 1.16.1 and 26.3. it is ready for review, but it is not approved for submitted runs. no request has been sent to moderators yet.
+macless 1.0.2 supports minecraft java 1.16.1 and 26.3. it is ready for review, but it is not approved for submitted runs. no request has been sent to moderators yet.
 
 these notes use [rules v8](https://mc.sr/rules/rules_v8.pdf) and the matching [rules source](https://github.com/minecraft%2djava%2dedition%2dspeedrunning/rules/blob/main/rules.typ). the section numbers below refer to v8. moderators may set different conditions for this version.
 
@@ -18,9 +18,9 @@ the current interface keeps the gui and overlay designs, with direct numeric inp
 
 1. both adapters use the profiler section selected with vanilla number keys. mapless hides unless its block entity row is visible or the block entity section itself is selected.
 2. profiler and mapless text shows at most two decimal places, matching both vanilla displays. pie geometry keeps the original vanilla percentages.
-3. optional remaps are disjoint, reversible key swaps. overlapping assignments remove the old pair, and imported profiles are normalized too. remaps and mode shortcuts stay inactive in chat and normal menus.
+3. optional remaps are disjoint, reversible key swaps. overlapping assignments remove the old pair, and imported profiles are normalized too. resize shortcuts work in menus except while typing in chat, text fields, books, or signs. remaps remain inactive in menus.
 4. sources keep the 16,384 pixel axis cap, 16 megapixel budget, and gpu limits. once in a world, the first pair exceeding the visible framebuffer locks the only oversized pair until process exit. settings resets, undo, world changes, and menus cannot clear it. eyezoom and preemptive share this pair by default; other oversized pairs are rejected. smaller sources are allowed, but shrinking the window may make a previously small mode oversized and block the switch.
-5. normal and eyezoom multipliers are configurable, but effective cubic mouse gain stays between vanilla sensitivity 0 and 1. at vanilla sensitivity 0.5, the effective multiplier is limited to 0.064 through 4.096. automatic switching with a mode still needs a ruling.
+5. the normal multiplier is configurable, but effective cubic mouse gain stays between vanilla sensitivity 0 and 1. boat eye uses 0.02291165 in the vanilla camera sensitivity calculation. whole mouse counts preserve its angle grid; regular input compensates for the configured sensitivity, and eyezoom uses a fixed 0.15 count multiplier. cinematic smoothing is bypassed while boat eye is enabled. the saved minecraft sensitivity is unchanged. at vanilla sensitivity 0.5, the effective multiplier is limited to 0.064 through 4.096. automatic switching with a mode still needs a ruling.
 6. locally calculated ninjabrain prediction bearings, correction angles, and nether coordinates are removed. the panel shows bot fields, including measurement corrections, with the usual chunk to block coordinate formatting.
 7. fabric api is not required or bundled. vanilla resource pack registration supplies the shaders.
 8. release jars disable verification at compile time and omit world, fixture, control, screenshot controller, and benchmark helpers. qa system properties cannot enable them.
@@ -31,7 +31,7 @@ the current interface keeps the gui and overlay designs, with direct numeric inp
 
 1. **profiler and counters (a.11.9 and a.10.6).** can a reviewed fabric mod read and redraw the current vanilla profiler section and entity counter, including the selected block entity percentage? the new tool f3 data exception alone does not permit this adapter. it uses internal data rather than ocr, keeps vanilla numeric selection, does not traverse hidden branches, and uses vanilla percentage precision. please review both the data access and the rendered overlays.
 2. **resizing (a.10.4.a and a.10.4.b).** does the window resolution exception also cover resizing a render target inside an unchanged operating system window? the limit uses the visible framebuffer, which is smaller than or equal to the monitor's full dimensions, and only one oversized pair is allowed until the process exits. does this approach meet the rule, including its bounds and retina interpretation?
-3. **sensitivity (a.1.4).** is automatic mode specific sensitivity allowed when effective gain stays within the vanilla slider's range? it multiplies mouse deltas before the vanilla player turn call and leaves the options slider alone. smoothing and input granularity can differ, so the matching gain still needs review.
+3. **sensitivity (a.1.4).** is automatic mode specific sensitivity allowed when effective gain stays within the vanilla slider's range? it scales accumulated mouse counts before vanilla sensitivity is applied and leaves the options slider alone. boat eye uses a fixed godsens camera curve with integer counts, compensates for the normal sensitivity outside eyezoom, and bypasses cinematic smoothing. the quantization and mode switching still need review.
 4. **native libraries and logging (a.8.5 and a.8.16).** can each bundled dll, dylib, and so be approved with its fabric jar? the libraries are extracted from the jar and loaded through `system.load` inside minecraft, rather than injected into an arbitrary process. do the injected library rule and liblogger requirement apply? which approved logging setup is needed on each platform? the mod's own hash logs only report the loaded file.
 5. **ninjabrain (a.11.7.a.i).** is the gui display and `chunk * 16 + 4` coordinate conversion allowed? prediction distance and certainty, eye records, and blind/divine messages come from the bot. the mod does not calculate a new prediction bearing. the external bot version and settings still need to meet their own rules.
 6. **versions and renderers (a.8.5 and the version specific lwjgl rules).** can the exact 1.16.1 and 26.3 builds be approved separately, and under which renderer and runtime conditions? support for opengl, vulkan, and external metal does not approve mcopt, the backend, the launcher runtime, or other mods. v8 does not settle every 26.3 renderer and runtime combination.
@@ -54,16 +54,14 @@ all seven questions remain pending in `rulings.json`. any required feature chang
 
 ## files and checks
 
-the public repository and versioned release include both universal jars, source with a permanent revision, third party notices, hashes, the gallery, and checks. each jar bundles macos arm64 and intel, windows x64, and linux x64 and arm64 libraries.
+the public repository and versioned release include both universal jars, source, third party notices, and sha256 and sha512 hashes. each jar bundles macos arm64 and intel, windows x64, and linux x64 and arm64 libraries.
 
-`artifacts.json` lists release binary hashes. `build.json` has the build commands, dependencies, and original binary build revision. the release's `checksums.json` lists sha256 and sha512 hashes for jars, native libraries, the capture helper, and source. its `verification.json` separates compiled targets from live minecraft tests and qa checks from release startup checks. release notes link the source commit and jar and native hashes.
+`artifacts.json` identifies the current jars and native libraries. `build.json` has the build commands and dependencies. the release checksums identify its uploaded files. the [current check record](evidence/release%2d1.0.2.json) lists code checks and packaging checks for 1.0.2. no final 1.0.2 jar was launched in minecraft.
 
-`checklist.json` tracks publication and review. the [local verification record](evidence/verification.json) predates public source publication. the [source comparison](evidence/source%2dcomparison.json) records unchanged runtime files. newer build setup fixes cover windows java paths, the windows api target, and native test exports.
-
-hosted builds and native contracts passed on windows x64, linux x64 and arm64, and macos arm64 and intel. both universal jars were assembled successfully. the [hosted build record](evidence/hosted%2dbuild.json) links the source revision and job results. ci downloads are separate builds; use `artifacts.json` to identify the release files for review.
+`checklist.json` tracks publication and review. the older [local verification record](evidence/verification.json), [source comparison](evidence/source%2dcomparison.json), and [hosted build record](evidence/hosted%2dbuild.json) describe 1.0.1. they are historical evidence, not runtime verification of 1.0.2. native and java input and resizing code changed in this update.
 
 full minecraft sessions on windows, linux, and intel macos remain unverified. the prism test instance was an isolated copy, and this review does not approve its other mods. macos 14 is the compilation target, but the apple silicon host's static dependencies emit macos 15 deployment warnings. macos 14 runtime compatibility remains unverified too.
 
 ## submission draft
 
-please review macless 1.0.1 for minecraft 1.16.1 and 26.3. the source, release jars, sha256 and sha512 hashes, platform checks, and seven questions are included above. please review the resizing, composition, eyezoom, profiler, mapless, counter, ninjabrain, and input features, and confirm the version, platform, and logging requirements. approval is still pending.
+please review macless 1.0.2 for minecraft 1.16.1 and 26.3. the source, release jars, sha256 and sha512 hashes, platform checks, and seven questions are included above. please review the resizing, composition, eyezoom, profiler, mapless, counter, ninjabrain, and input features, and confirm the version, platform, and logging requirements. approval is still pending.

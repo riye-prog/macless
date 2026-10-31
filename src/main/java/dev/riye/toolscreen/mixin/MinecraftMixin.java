@@ -26,7 +26,7 @@ public abstract class MinecraftMixin {
     @Redirect(method = "renderFrame(Z)V", remap = false, at = @At(value = "INVOKE", remap = false, target = "Lcom/mojang/renderpearl/api/device/GpuSurface;blitFromTexture(Lcom/mojang/renderpearl/api/commands/CommandEncoder;Lcom/mojang/renderpearl/api/textures/GpuTextureView;)V"))
     private void toolscreenPresent(GpuSurface surface, CommandEncoder encoder, GpuTextureView source) {
         GpuTextureView frame = source;
-        if (Toolscreen.ready) {
+        if (Toolscreen.resourcesReady()) {
             AssetManager.update(encoder);
             if(Minecraft.getInstance().gui.screen() instanceof ToolscreenScreen)UiRenderer.livePreview(encoder,source);
             if (!Toolscreen.failed) {

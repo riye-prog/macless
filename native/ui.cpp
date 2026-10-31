@@ -295,14 +295,14 @@ bool pageTab(const char* label,int page,float width){
 }
 
 void sensitivityControl(const char* text,int key){
-    static std::unordered_map<int,double> exact;auto state=toolscreen::snapshot();double value=state[key],minimum=key==146?.000001:.001,maximum=20;int enabledKey=key==146?145:38;bool enabled=state[enabledKey]>.5;
+    static std::unordered_map<int,double> exact;auto state=toolscreen::snapshot();double value=state[key],minimum=.001,maximum=20;int enabledKey=38;bool enabled=state[enabledKey]>.5;
     float left=ImGui::GetCursorPosX(),width=ImGui::GetContentRegionAvail().x,field=std::min(112*scale,width*.40f);ImGui::PushID(key);
-    bool active=state[128]>.5&&enabled&&((key==146&&int(state[0])==3)||(key==39&&(int(state[0])!=3||state[145]<.5)));
+    bool active=state[128]>.5&&enabled&&(int(state[0])!=3||state[145]<.5);
     ImGui::AlignTextToFramePadding();fittedText(text,width-field-54*scale,active?bright:muted);ImGui::SameLine(left+width-field-44*scale);ImGui::SetNextItemWidth(field);
     if(numericInput("##value",value,minimum,maximum,"%.8g"))toolscreen::set(key,value);rememberBounds(key);
     if(ImGui::IsItemClicked(ImGuiMouseButton_Right)){exact[key]=value;ImGui::OpenPopup("Adjust sensitivity");}tooltip("Type a value and press Enter. Right-click for an exact value.");
     ImGui::SameLine(left+width-34*scale);if(switchButton("enabled",enabled))toolscreen::set(enabledKey,enabled?1:0);rememberBounds(enabledKey);
-    if(beginPopup("Adjust sensitivity")){ImGui::TextUnformatted(key==146?"EyeZoom":"Normal");ImGui::SetNextItemWidth(220*scale);if(ImGui::IsWindowAppearing())ImGui::SetKeyboardFocusHere();if(ImGui::InputDouble("##exact",&exact[key],0,0,"%.8f",ImGuiInputTextFlags_AutoSelectAll))toolscreen::set(key,exact[key]);if(button("Done"))ImGui::CloseCurrentPopup();endPopup();}ImGui::PopID();
+    if(beginPopup("Adjust sensitivity")){ImGui::TextUnformatted("Normal");ImGui::SetNextItemWidth(220*scale);if(ImGui::IsWindowAppearing())ImGui::SetKeyboardFocusHere();if(ImGui::InputDouble("##exact",&exact[key],0,0,"%.8f",ImGuiInputTextFlags_AutoSelectAll))toolscreen::set(key,exact[key]);if(button("Done"))ImGui::CloseCurrentPopup();endPopup();}ImGui::PopID();
 }
 
 void drawGrid(ImDrawList* draw,const Bounds& box,const toolscreen::Quad& layer,const toolscreen::Settings& state){
@@ -577,7 +577,7 @@ void keyboardRemaps(){
 }
 
 void sensitivityPanel(){
-    heading("Mouse");sensitivityControl("Normal",39);sensitivityControl("EyeZoom",146);tooltip("EyeZoom replaces the normal multiplier.");
+    heading("Mouse");sensitivityControl("Normal",39);settingToggle("Boat Eye godsens",145);tooltip("Use godsens for vanilla camera turns, preserve the normal turn rate, and slow EyeZoom with whole mouse counts. Cinematic smoothing is bypassed while enabled.");ImGui::TextDisabled("Ninjabrain sensitivity: 0.02291165");
 }
 
 void bindingTable(){

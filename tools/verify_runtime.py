@@ -35,7 +35,7 @@ def verify(case, run):
             raise RuntimeError(f'{case} exited with {result.returncode}; see {launch_log}')
     text = path.read_text()
     marker = 'TOOLSCREEN_LEGACY_PASS' if case == 'legacy' else 'TOOLSCREEN_WORLD_PASS backend=' + {'opengl': 'OpenGL', 'vulkan': 'Vulkan', 'metal': 'Metal'}[case]
-    checks = ['TOOLSCREEN_UI_COLOR_PASS', 'TOOLSCREEN_NINJA_PASS', 'TOOLSCREEN_MIRRORS_PASS', 'TOOLSCREEN_INPUT_CONTEXT_PASS', 'TOOLSCREEN_F3_VISIBILITY_PASS visible=false', 'TOOLSCREEN_F3_VISIBILITY_PASS visible=true', 'TOOLSCREEN_CAMERA_SCALING_PASS modes=5 maximum=20 unified=true eyeOverride=true', 'TOOLSCREEN_MEASUREMENT_PAUSE_PASS', 'TOOLSCREEN_MEASUREMENT_RESUME_PASS', marker]
+    checks = ['TOOLSCREEN_UI_COLOR_PASS', 'TOOLSCREEN_NINJA_PASS', 'TOOLSCREEN_MIRRORS_PASS', 'TOOLSCREEN_INPUT_CONTEXT_PASS', 'TOOLSCREEN_F3_VISIBILITY_PASS visible=false', 'TOOLSCREEN_F3_VISIBILITY_PASS visible=true', 'TOOLSCREEN_CAMERA_SCALING_PASS modes=5 maximum=20 unified=true eyeOverride=godsens', 'TOOLSCREEN_MEASUREMENT_PAUSE_PASS', 'TOOLSCREEN_MEASUREMENT_RESUME_PASS', marker]
     if case != 'legacy':
         checks.append('BUILD SUCCESSFUL')
     missing = [check for check in checks if check not in text]

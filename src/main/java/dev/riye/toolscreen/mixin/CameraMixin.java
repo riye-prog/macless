@@ -10,18 +10,18 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(Camera.class)
 public abstract class CameraMixin {
     @Redirect(method="update",at=@At(value="INVOKE",target="Lcom/mojang/blaze3d/platform/Window;getWidth()I"))
-    private int toolscreenProjectionWidth(Window window){return Toolscreen.suspended()?window.getWidth():Toolscreen.viewport()[0];}
+    private int toolscreenProjectionWidth(Window window){return Toolscreen.resizingSuspended()?window.getWidth():Toolscreen.viewport()[0];}
 
     @Redirect(method="update",at=@At(value="INVOKE",target="Lcom/mojang/blaze3d/platform/Window;getHeight()I"))
-    private int toolscreenProjectionHeight(Window window){return Toolscreen.suspended()?window.getHeight():Toolscreen.viewport()[1];}
+    private int toolscreenProjectionHeight(Window window){return Toolscreen.resizingSuspended()?window.getHeight():Toolscreen.viewport()[1];}
 
     @Redirect(method="createProjectionMatrixForCulling",at=@At(value="INVOKE",target="Lcom/mojang/blaze3d/platform/Window;getWidth()I"))
     private int toolscreenCullingWidth(Window window){
-        if(Toolscreen.suspended())return window.getWidth();
+        if(Toolscreen.resizingSuspended())return window.getWidth();
         int[] view=Toolscreen.viewport();
         return Math.max(view[0],(int)Math.ceil((double)view[1]*window.getWidth()/Math.max(window.getHeight(),1)));
     }
 
     @Redirect(method="createProjectionMatrixForCulling",at=@At(value="INVOKE",target="Lcom/mojang/blaze3d/platform/Window;getHeight()I"))
-    private int toolscreenCullingHeight(Window window){return Toolscreen.suspended()?window.getHeight():Toolscreen.viewport()[1];}
+    private int toolscreenCullingHeight(Window window){return Toolscreen.resizingSuspended()?window.getHeight():Toolscreen.viewport()[1];}
 }

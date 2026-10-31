@@ -2,7 +2,7 @@ plugins {
     id 'net.fabricmc.fabric-loom-remap'
 }
 
-version = '1.0.1+1.16.1'
+version = '1.0.2+1.16.1'
 group = 'dev.riye'
 def verificationBuild = rootProject.hasProperty('verificationBuild') || rootProject.hasProperty('world') || rootProject.hasProperty('smoke')
 base { archivesName = verificationBuild ? 'macless-qa' : 'macless' }

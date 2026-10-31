@@ -1,5 +1,5 @@
 {
-  "candidate": "1.0.1",
+  "candidate": "1.0.2",
   "runtime_source_changed_since_binary_build": false,
   "requirements": {
     "java": "25 for builds and Minecraft 26.3; Java 17 minimum for the 1.16.1 release runtime",
@@ -96,7 +96,10 @@
     "Windows, Linux and Intel macOS libraries compile, but full Minecraft sessions on those systems are untested.",
     "GitHub Actions checks and local QA checks are recorded separately.",
     "QA controllers need a graphical desktop and are excluded from release JARs.",
-    "CI downloads are separate builds. Use artifacts.json to identify the release files for review. The original binary build revision is listed here; later changes fix build portability."
+    "CI downloads are separate builds. Use artifacts.json to identify the release files for review. The original binary build revision is listed here; later changes fix build portability.",
+    "Final 1.0.2 JARs were not launched in Minecraft. Historical runtime records describe 1.0.1."
   ],
-  "original_binary_build_source_revision": "f628b3fcb121979c2ac2ee76a51650f353ad610f"
+  "previous_release_binary_build_source_revision": "f628b3fcb121979c2ac2ee76a51650f353ad610f",
+  "binary_build_source_ref": "refs/tags/v1.0.2",
+  "verification_record": "evidence/release-1.0.2.json"
 }

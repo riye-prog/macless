@@ -16,11 +16,11 @@ public abstract class GameRendererMixin {
     @Shadow @Final private GameRenderState gameRenderState;
 
     @Inject(method="extractWindow",at=@At("HEAD"))
-    private void toolscreenDebugReset(CallbackInfo callback){if(Toolscreen.ready){Toolscreen.updateMeasurementPause();}if(Toolscreen.ready&&!(net.minecraft.client.Minecraft.getInstance().gui.screen() instanceof dev.riye.toolscreen.ToolscreenScreen)&&!Toolscreen.measurementPaused()){dev.riye.toolscreen.NativeBridge.debugCounter("");if(net.minecraft.client.Minecraft.getInstance().gui.screen()!=null)dev.riye.toolscreen.NativeBridge.releaseHeldInput();}}
+    private void toolscreenDebugReset(CallbackInfo callback){if(Toolscreen.ready){Toolscreen.updateMeasurementPause();Toolscreen.updateMenuLayout();}if(Toolscreen.ready&&!(net.minecraft.client.Minecraft.getInstance().gui.screen() instanceof dev.riye.toolscreen.ToolscreenScreen)&&!Toolscreen.measurementPaused()){dev.riye.toolscreen.NativeBridge.debugCounter("");if(!Toolscreen.resizeShortcutsAllowed())dev.riye.toolscreen.NativeBridge.releaseHeldInput();}}
 
     @Inject(method = "extractWindow", at = @At("TAIL"))
     private void toolscreenWindow(CallbackInfo callback) {
-        if (!Toolscreen.ready || Toolscreen.failed) return;
+        if (!Toolscreen.resourcesReady() || Toolscreen.failed) return;
         int[] viewport = Toolscreen.viewport();
         gameRenderState.windowRenderState.width = viewport[0];
         gameRenderState.windowRenderState.height = viewport[1];
@@ -28,7 +28,7 @@ public abstract class GameRendererMixin {
 
     @Inject(method = "render", at = @At("HEAD"))
     private void toolscreenPrepare(CallbackInfo callback) {
-        if (!Toolscreen.ready) return;
+        if (!Toolscreen.resourcesReady()) return;
         try {
             Compositor.prepare((GameRenderer) (Object) this, gameRenderState);
         } catch (Throwable failure) {
