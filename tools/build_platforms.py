@@ -51,7 +51,7 @@ def build(target):
     log = ROOT / 'verification' / ('macless-' + VERSION) / ('build-' + target + '.log')
     log.parent.mkdir(parents=True, exist_ok=True)
     log.write_text('')
-    options = ['-DCMAKE_BUILD_TYPE=Release', '-DFETCHCONTENT_SOURCE_DIR_IMGUI=' + str(ROOT / 'build/native/_deps/imgui-src')]
+    options = ['-DMACLESS_BUNDLED_FREETYPE=ON', '-DCMAKE_BUILD_TYPE=Release', '-DFETCHCONTENT_SOURCE_DIR_IMGUI=' + str(ROOT / 'build/native/_deps/imgui-src')]
     if target == 'macos-arm64':
         directory = ROOT / 'build/native'
     else:
@@ -61,7 +61,7 @@ def build(target):
         if not source.exists():
             with tarfile.open(archive) as data:
                 data.extractall(DEPS, filter='data')
-        options += ['-DMACLESS_BUNDLED_FREETYPE=ON', '-DFETCHCONTENT_SOURCE_DIR_FREETYPE=' + str(source)]
+        options += ['-DFETCHCONTENT_SOURCE_DIR_FREETYPE=' + str(source)]
     if target == 'macos-x64':
         options += ['-DCMAKE_OSX_ARCHITECTURES=x86_64']
     elif target.startswith(('windows-', 'linux-')):

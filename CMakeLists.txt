@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.24)
 project(ToolscreenNative LANGUAGES C CXX)
 option(MACLESS_PORTABLE_DESKTOP "Use shared desktop services" OFF)
-option(MACLESS_BUNDLED_FREETYPE "Build FreeType from source" OFF)
+option(MACLESS_BUNDLED_FREETYPE "Build FreeType from source" ON)
 if(APPLE AND NOT MACLESS_PORTABLE_DESKTOP)
     enable_language(OBJCXX)
 endif()

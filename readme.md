@@ -34,7 +34,7 @@ This release is not approved for submitted runs.
 
 ## Build
 
-Use Java 25, Python 3, CMake 3.24 or newer, and a C++20 compiler. macOS also needs FreeType and libpng. The Gradle wrapper verifies its distribution checksum.
+Use Java 25, Python 3, CMake 3.24 or newer, and a C++20 compiler. FreeType is built from pinned source on every platform. The Gradle wrapper verifies its distribution checksum.
 
 ```sh
 ./gradlew assemble :legacy:assemble check

@@ -19,9 +19,9 @@
       "archive_sha256": "85f4ce357df05bcc331b587f01976f47fb55f19fadf477a7907289686bc3f4c8"
     },
     "freetype": {
-      "version": "2.14.1 for portable builds",
+      "version": "2.14.1 from pinned source on all platforms",
       "archive_sha256": "44bd69d1f0750603410cfd4f26f1c5523c5a3a087a2dfa8639b757dc7c6677be",
-      "macos": "host Homebrew FreeType and libpng; byte for byte rebuilds have not been verified"
+      "macos": "bundled by default; the optional system-library CMake path is not used for this release"
     },
     "nlohmann_json": {
       "version": "3.12.0",
@@ -57,8 +57,7 @@
     "linux-arm64"
   ],
   "macos_dependencies": [
-    "freetype",
-    "libpng"
+    "Xcode Command Line Tools"
   ],
   "linux_runtime": {
     "glibc": "2.28 or newer",
@@ -92,14 +91,18 @@
   },
   "verification_limits": [
     "Identical rebuilds have not been verified.",
-    "macOS 14 is untested; host static dependencies produce macOS 15 deployment warnings.",
     "Windows, Linux and Intel macOS libraries compile, but full Minecraft sessions on those systems are untested.",
     "GitHub Actions checks and local QA checks are recorded separately.",
     "QA controllers need a graphical desktop and are excluded from release JARs.",
     "CI downloads are separate builds. Use artifacts.json to identify the release files for review. The original binary build revision is listed here; later changes fix build portability.",
-    "Final 1.0.2 JARs were not launched in Minecraft. Historical runtime records describe 1.0.1."
+    "Final 1.0.2 JARs were not launched in Minecraft. Historical runtime records describe 1.0.1.",
+    "macOS 14 runtime compatibility is unverified. The default build uses bundled FreeType rather than Homebrew font libraries."
   ],
   "previous_release_binary_build_source_revision": "f628b3fcb121979c2ac2ee76a51650f353ad610f",
   "binary_build_source_ref": "refs/tags/v1.0.2",
-  "verification_record": "evidence/release-1.0.2.json"
+  "verification_record": "evidence/release-1.0.2.json",
+  "optional_system_font_dependencies": [
+    "freetype",
+    "libpng"
+  ]
 }

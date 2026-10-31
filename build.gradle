@@ -53,7 +53,7 @@ java {
 
 tasks.register('configureNative', Exec) {
     onlyIf { prebuiltNatives == null }
-    commandLine 'cmake', '-S', '.', '-B', nativeDirectory, "-DJAVA_HOME=${System.getProperty('java.home').replace('\\', '/')}", '-DCMAKE_BUILD_TYPE=Release'
+    commandLine 'cmake', '-S', '.', '-B', nativeDirectory, "-DJAVA_HOME=${System.getProperty('java.home').replace('\\', '/')}", '-DCMAKE_BUILD_TYPE=Release', '-DMACLESS_BUNDLED_FREETYPE=ON'
 }
 
 tasks.register('buildNative', Exec) {

@@ -60,7 +60,7 @@ the public repository and versioned release include both universal jars, source,
 
 `checklist.json` tracks publication and review. the older [local verification record](evidence/verification.json), [source comparison](evidence/source%2dcomparison.json), and [hosted build record](evidence/hosted%2dbuild.json) describe 1.0.1. they are historical evidence, not runtime verification of 1.0.2. native and java input and resizing code changed in this update.
 
-full minecraft sessions on windows, linux, and intel macos remain unverified. the prism test instance was an isolated copy, and this review does not approve its other mods. macos 14 is the compilation target, but the apple silicon host's static dependencies emit macos 15 deployment warnings. macos 14 runtime compatibility remains unverified too.
+full minecraft sessions on windows, linux, and intel macos remain unverified. the prism test instance was an isolated copy, and this review does not approve its other mods. macos 14 is the compilation target, and freetype is built from pinned source. macos 14 runtime compatibility remains unverified.
 
 ## submission draft
 
