@@ -70,6 +70,6 @@ test_interface_scale_accepts_direct_typing_and_preserves_range (test_ui_inputs.U
 test_resolution_dimensions_accept_typing_and_disable_automatic (test_ui_inputs.UiInputTests.test_resolution_dimensions_accept_typing_and_disable_automatic) ... ok
 
 ----------------------------------------------------------------------
-Ran 70 tests in 0.363s
+Ran 70 tests in 0.365s
 
 OK

@@ -2,14 +2,14 @@
   "candidate": "1.0.2",
   "jars": {
     "macless-1.0.2+26.3.jar": {
-      "bytes": 26942498,
-      "sha256": "519e5a6f0d16228a33661cbad276647bbdba705f15672600dc66a73f2e0b4e12",
-      "sha512": "668feff938b7976caac19fd59c5fd0bb47d91bc6ca926bab55e3eacc8fa0013c85f0e3e1459ee971fa9459abc0a31cb03d78a8d537ad385a41161331d7544985"
+      "bytes": 26933631,
+      "sha256": "5e00734b048d83ec6e2e90dcd10124a18282440a3455dd2fad73e7bf08e608d3",
+      "sha512": "05a8aeff52cff391090ef5d67c2c67a79c07034a506329b6e7b34d15c44b27cf2184d8cb91bc9c2c7ff5ee5948cbddba59e4741d9fed5707af480ad72d42f7c4"
     },
     "macless-1.0.2+1.16.1.jar": {
-      "bytes": 26931377,
-      "sha256": "a4726dbf4e4c753f81bc1777471e19b5d1fea8b820d67ed96883d9b08d02886a",
-      "sha512": "cf43c4e34c98e3bc8f02c153ff225dbe252aba2959effb8dbca741d14cc9cea320c8cdc4efb8b44c2d598ba2588e98a0ff015d1f7f83314ee8b759730b11f424"
+      "bytes": 26922510,
+      "sha256": "3d337fee897bcfebc7a3365f596be4236150cb1a8d29db4c37f617365abd1f71",
+      "sha512": "a0f842326d6ce46ade644165dceba1cc557b4d9dcc47809e439a91b8afe2fe81cc67dd5e0990ef443d19f401e79a63e0842a2db47cdee0d154a2cce0a6f804e7"
     }
   },
   "natives": {
@@ -33,9 +33,9 @@
     },
     "macos-arm64": {
       "resource": "natives/macos-arm64/libtoolscreen.dylib",
-      "bytes": 3187104,
-      "sha256": "fd503918d0db4592c76a612575d57fa299dc70597d14f33b4e3437ef1131ec10",
-      "sha512": "d43b3df6e61b909f97071114ef7b398984bd3c358a8975887a718b6a1c4b6993f722bf2b7a6570c72cf61426f5ed92018b4447df7186378f32087dda6b56a400"
+      "bytes": 3156240,
+      "sha256": "98493b08da56fb6e43ecd4272dab2b8dcb96e1e584017b2af5e3ce2c2d538488",
+      "sha512": "c1aac74c15c7afc3dcb0557048b9ea0c2baa72702ad9d7652dde3c28738c102eff80e7e0324ca87f76af4f4ac233727d705465e8143ca80fb6bdf3a78c156a81"
     },
     "linux-x64": {
       "resource": "natives/linux-x64/libtoolscreen.so",

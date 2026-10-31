@@ -1,12 +1,12 @@
 {
   "candidate": "1.0.2",
   "source_ref": "refs/tags/v1.0.2",
-  "completed_at": "2026-10-31T17:07:59Z",
+  "completed_at": "2026-10-31T17:16:05Z",
   "native_tests": {
     "passed": true,
     "count": 70,
     "platform": "macos-arm64",
-    "log_sha256": "33830c1c21e07dbd67d7193826c69b4d60e6b21ff75f952d4b088c6e270655c6",
+    "log_sha256": "55a7195de3e92d6bc23e1f9361c6caf765b0d22849d03ba51de248376c1d8bc7",
     "log": "logs/1.0.2-native.log"
   },
   "java_checks": {
@@ -15,7 +15,7 @@
     "boat_eye": 10242
   },
   "gradle_build_passed": true,
-  "gradle_log_sha256": "7ca9d3e7fa21126786495afc23357ba3799855b3fbe146e6770618670181990e",
+  "gradle_log_sha256": "b646495a0f152d7b163072d013adc66efde90665e79c0f3a1bdd2a32f8cca707",
   "jar_checks": {
     "metadata_versions": {
       "26.3": "1.0.2+26.3",
@@ -33,10 +33,48 @@
   "final_jars_launched_in_minecraft": false,
   "platform_runtime_coverage": "not rerun for 1.0.2",
   "hosted_workflow": {
-    "status": "pending",
-    "workflow": ".github/workflows/build.yml"
+    "status": "completed",
+    "conclusion": "success",
+    "run_id": 41223710747,
+    "url": "https://github.com/riye-prog/macless/actions/runs/41223710747",
+    "head_sha": "5896d38a64b9b5b1094bdb31ec5231c3bb721b45",
+    "jobs": [
+      {
+        "name": "native (macos-15-intel)",
+        "conclusion": "success"
+      },
+      {
+        "name": "native (ubuntu-22.04)",
+        "conclusion": "success"
+      },
+      {
+        "name": "native (windows-2022)",
+        "conclusion": "success"
+      },
+      {
+        "name": "native (ubuntu-24.04-arm)",
+        "conclusion": "success"
+      },
+      {
+        "name": "native (macos-15)",
+        "conclusion": "success"
+      },
+      {
+        "name": "jars",
+        "conclusion": "success"
+      }
+    ],
+    "exact_release_binaries": false,
+    "scope": "Hosted binaries are separate builds. Exact release identities are in artifacts.json."
   },
   "historical_evidence_version": "1.0.1",
   "approved": false,
-  "gradle_log": "logs/1.0.2-build.log"
+  "gradle_log": "logs/1.0.2-build.log",
+  "native_font_library": "FreeType 2.14.1 built from pinned source on all five platforms",
+  "macos_arm64_native_build": {
+    "passed": true,
+    "font_library": "bundled FreeType 2.14.1",
+    "log": "logs/1.0.2-macos-arm64-build.log",
+    "log_sha256": "161b7cf272bae449fa72f074cf4196e556c9165b4309f18e74f469ae453af9c5"
+  }
 }

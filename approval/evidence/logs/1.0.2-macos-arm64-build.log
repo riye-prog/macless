@@ -1,0 +1,89 @@
+-- The C compiler identification is AppleClang 17.0.0.17000013
+-- The CXX compiler identification is AppleClang 17.0.0.17000013
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- The OBJCXX compiler identification is AppleClang 17.0.0.17000013
+-- Detecting OBJCXX compiler ABI info
+-- Detecting OBJCXX compiler ABI info - done
+-- Check for working OBJCXX compiler: /usr/bin/clang++ - skipped
+-- Found JNI: /Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home/include  found components: AWT JVM
+-- Found PkgConfig: /opt/homebrew/bin/pkg-config (found version "3.0.7")
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Looking for fcntl.h
+-- Looking for fcntl.h - found
+-- Found Python3: /opt/homebrew/Frameworks/Python.framework/Versions/3.14/bin/python3.14 (found version "3.14.5") found components: Interpreter
+-- Configuring done (4.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: <project>/build/native-release-arm64
+[  3%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftbase.c.o
+[  3%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/autofit/autofit.c.o
+[  6%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftbbox.c.o
+[  6%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftbdf.c.o
+[  8%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftbitmap.c.o
+[ 10%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftcid.c.o
+[ 11%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftfstype.c.o
+[ 15%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftgasp.c.o
+[ 15%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftglyph.c.o
+[ 16%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftgxval.c.o
+[ 18%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftinit.c.o
+[ 20%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftmm.c.o
+[ 21%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftotval.c.o
+[ 23%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftpatent.c.o
+[ 25%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftpfr.c.o
+[ 26%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftstroke.c.o
+[ 28%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftsynth.c.o
+[ 30%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/fttype1.c.o
+[ 31%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftwinfnt.c.o
+[ 33%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/bdf/bdf.c.o
+[ 35%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/bzip2/ftbzip2.c.o
+[ 36%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/cache/ftcache.c.o
+[ 38%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/cff/cff.c.o
+[ 40%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/cid/type1cid.c.o
+[ 41%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/gzip/ftgzip.c.o
+[ 43%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/lzw/ftlzw.c.o
+[ 45%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/pcf/pcf.c.o
+[ 46%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/pfr/pfr.c.o
+[ 48%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/psaux/psaux.c.o
+[ 50%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/pshinter/pshinter.c.o
+[ 51%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/psnames/psnames.c.o
+[ 53%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/raster/raster.c.o
+[ 55%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/sdf/sdf.c.o
+[ 56%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/sfnt/sfnt.c.o
+[ 58%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/smooth/smooth.c.o
+[ 60%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/svg/svg.c.o
+[ 61%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/truetype/truetype.c.o
+[ 63%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/type1/type1.c.o
+[ 65%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/type42/type42.c.o
+[ 66%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/winfonts/winfnt.c.o
+[ 68%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/builds/unix/ftsystem.c.o
+[ 70%] Building C object _deps/freetype-build/CMakeFiles/freetype.dir/src/base/ftdebug.c.o
+[ 71%] Linking C static library libfreetype.a
+[ 71%] Built target freetype
+[ 75%] Building CXX object CMakeFiles/imgui.dir/build/native/_deps/imgui-src/imgui_draw.cpp.o
+[ 75%] Building CXX object CMakeFiles/imgui.dir/build/native/_deps/imgui-src/imgui.cpp.o
+[ 76%] Building CXX object CMakeFiles/imgui.dir/build/native/_deps/imgui-src/imgui_tables.cpp.o
+[ 78%] Building CXX object CMakeFiles/imgui.dir/build/native/_deps/imgui-src/imgui_widgets.cpp.o
+[ 80%] Building CXX object CMakeFiles/imgui.dir/build/native/_deps/imgui-src/misc/freetype/imgui_freetype.cpp.o
+[ 81%] Linking CXX static library libimgui.a
+[ 81%] Built target imgui
+[ 83%] Generating generated/fonts.hpp
+[ 86%] Building CXX object CMakeFiles/toolscreen.dir/native/core.cpp.o
+[ 86%] Building CXX object CMakeFiles/toolscreen.dir/native/input.cpp.o
+[ 88%] Building CXX object CMakeFiles/toolscreen.dir/native/features.cpp.o
+[ 90%] Building CXX object CMakeFiles/toolscreen.dir/native/overlays.cpp.o
+[ 91%] Building CXX object CMakeFiles/toolscreen.dir/native/bridge.cpp.o
+[ 93%] Building CXX object CMakeFiles/toolscreen.dir/native/ui.cpp.o
+[ 95%] Building CXX object CMakeFiles/toolscreen.dir/native/storage.cpp.o
+[ 96%] Building OBJCXX object CMakeFiles/toolscreen.dir/native/platform.mm.o
+[ 98%] Building OBJCXX object CMakeFiles/toolscreen.dir/native/ninja_macos.mm.o
+[100%] Linking CXX shared library libtoolscreen.dylib
+[100%] Built target toolscreen

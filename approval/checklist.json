@@ -62,12 +62,13 @@
     },
     {
       "item": "five hosted native builds and universal JAR assembly",
-      "status": "pending for 1.0.2; historical 1.0.1 results retained",
+      "status": "passed for 1.0.2",
       "path": "evidence/release-1.0.2.json",
-      "scope": "ci builds are separate; release hashes are in artifacts.json"
+      "scope": "hosted binaries are separate; exact release hashes are in artifacts.json"
     }
   ],
   "runtime_source_url": "https://github.com/riye-prog/macless/tree/v1.0.2",
   "runtime_source_ref": "refs/tags/v1.0.2",
-  "previous_release_hosted_build_url": "https://github.com/riye-prog/macless/actions/runs/40865626352"
+  "previous_release_hosted_build_url": "https://github.com/riye-prog/macless/actions/runs/40865626352",
+  "hosted_build_url": "https://github.com/riye-prog/macless/actions/runs/41223710747"
 }
